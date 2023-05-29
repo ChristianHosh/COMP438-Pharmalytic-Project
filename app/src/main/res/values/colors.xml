@@ -11,7 +11,7 @@
 <!--    TEXT COLOR-->
     <color name="text_emphasis">#FFFFFF</color>
     <color name="text_secondary">#CED4DA</color>
-    <color name="text_tertiary">#6C757D</color>
+    <color name="text_tertiary">#7B858E</color>
 
 <!--    PRIMARY COLOR-->
     <color name="primary">#0D6EFD</color>
