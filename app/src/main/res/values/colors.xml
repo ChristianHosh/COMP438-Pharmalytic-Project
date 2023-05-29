@@ -1,5 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+
+<!--    MAIN COLOR-->
+    <color name="body_bg">#212529</color>
+    <color name="secondary_bg">#343A40</color>
+    <color name="tertiary_bg">#343A40</color>
+    <color name="emphasis_color">#FFFFFF</color>
+    <color name="border_color">#495057</color>
+
+<!--    TEXT COLOR-->
+    <color name="text_emphasis">#FFFFFF</color>
+    <color name="text_secondary">#CED4DA</color>
+    <color name="text_tertiary">#6C757D</color>
+
+<!--    PRIMARY COLOR-->
+    <color name="primary">#0D6EFD</color>
+    <color name="primary_bg">#031633</color>
+    <color name="primary_border">#084298</color>
+    <color name="primary_text">#6EA8FE</color>
+
+<!--    SUCCESS COLOR-->
+    <color name="success">#198754</color>
+    <color name="success_bg">#051B11</color>
+    <color name="success_border">#0F5132</color>
+    <color name="success_text">#75B798</color>
+
+<!--    DANGER COLOR-->
+    <color name="danger">#DC3545</color>
+    <color name="danger_bg">#2C0B0E</color>
+    <color name="danger_border">#842029</color>
+    <color name="danger_text">#EA868F</color>
+
+<!--    WARNING COLOR-->
+    <color name="warning">#FFC107</color>
+    <color name="warning_bg">#332701</color>
+    <color name="warning_border">#997404</color>
+    <color name="warning_text">#212529</color>
+
+<!--    INFO COLOR-->
+    <color name="info">#0DCAF0</color>
+    <color name="info_bg">#032830</color>
+    <color name="info_border">#087990</color>
+    <color name="info_text">#6EDFF6</color>
+
 </resources>

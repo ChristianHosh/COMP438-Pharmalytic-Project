@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/body_bg"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:paddingStart="40dp"
+    android:paddingEnd="20dp"
+    tools:context=".RegisterActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+
+        android:text="@string/reg_get_started"
+        android:textColor="@color/text_emphasis"
+        android:textSize="32sp"
+
+        android:textStyle="bold" />
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <!--        NAME-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+
+            android:orientation="vertical"
+            android:paddingStart="20dp"
+            android:paddingEnd="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:labelFor="@+id/in_name"
+
+                android:text="@string/reg_name"
+                android:textColor="@color/text_secondary"
+
+                android:textSize="22sp" />
+
+            <EditText
+                android:id="@+id/in_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="5dp"
+
+                android:autofillHints="name"
+                android:inputType="text"
+                android:textColor="@color/text_secondary" />
+
+            <TextView
+                android:id="@+id/error_msg_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/danger_text" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!--        EMAIL-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+
+            android:orientation="vertical"
+            android:paddingStart="20dp"
+            android:paddingEnd="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:labelFor="@+id/in_email"
+
+                android:text="@string/reg_e_mail"
+                android:textColor="@color/text_secondary"
+
+                android:textSize="22sp" />
+
+            <EditText
+                android:id="@+id/in_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="5dp"
+
+                android:autofillHints="emailAddress"
+                android:inputType="textEmailAddress"
+
+                android:textColor="@color/text_secondary"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/error_msg_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/danger_text" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!--        PASSWORD-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+
+            android:orientation="vertical"
+            android:paddingStart="20dp"
+            android:paddingEnd="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:labelFor="@+id/in_password"
+
+                android:text="@string/reg_password"
+                android:textColor="@color/text_secondary"
+
+                android:textSize="22sp" />
+
+            <EditText
+                android:id="@+id/in_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="5dp"
+
+                android:autofillHints="password"
+                android:inputType="textPassword"
+                android:textColor="@color/text_secondary" />
+
+            <TextView
+                android:id="@+id/error_msg_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/danger_text" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!--        CONFIRM PASSWORD-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+
+            android:orientation="vertical"
+            android:paddingStart="20dp"
+            android:paddingEnd="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:labelFor="@+id/in_confirm_password"
+
+                android:text="@string/reg_confirm_password"
+                android:textColor="@color/text_secondary"
+                android:textSize="22sp" />
+
+            <EditText
+                android:id="@+id/in_confirm_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="5dp"
+
+                android:autofillHints="password"
+                android:inputType="textPassword"
+                android:textColor="@color/text_secondary" />
+
+            <TextView
+                android:id="@+id/error_msg_confirm_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/danger_text" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_primary"
+
+        android:paddingHorizontal="40dp"
+        android:text="@string/reg_sign_up"
+        android:textColor="@color/text_emphasis"
+        android:textSize="20sp"
+
+        />
+
+    <TextView
+        android:id="@+id/text_login_redirect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+
+        android:text="@string/reg_redirect"
+
+        android:textColor="@color/text_tertiary"
+        android:textSize="16sp" />
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>
