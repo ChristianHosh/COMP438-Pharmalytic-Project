@@ -5,15 +5,15 @@
     android:layout_height="match_parent"
     android:background="@color/body_bg"
     android:orientation="vertical"
-    android:padding="20dp"
-    android:paddingStart="40dp"
-    android:paddingEnd="20dp"
+    android:padding="10dp"
+    android:paddingStart="30dp"
+    android:paddingEnd="10dp"
     tools:context=".RegisterActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
 
         android:text="@string/reg_get_started"
         android:textColor="@color/text_emphasis"
@@ -21,7 +21,6 @@
         android:fontFamily="@font/cairo"
         android:textStyle="bold"
         />
-
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -33,7 +32,7 @@
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
 
             android:orientation="vertical"
             android:paddingStart="20dp"
@@ -56,7 +55,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:layout_marginTop="5dp"
                 android:textSize="20sp"
                 android:textColor="@color/text_secondary"
                 android:fontFamily="@font/cairo"
@@ -80,7 +78,7 @@
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
 
             android:orientation="vertical"
             android:paddingStart="20dp"
@@ -104,7 +102,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:layout_marginTop="5dp"
                 android:textSize="20sp"
                 android:textColor="@color/text_secondary"
                 android:fontFamily="@font/cairo"
@@ -127,7 +124,7 @@
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
 
             android:orientation="vertical"
             android:paddingStart="20dp"
@@ -151,7 +148,6 @@
                 android:layout_height="wrap_content"
                 android:maxWidth="480dp"
 
-                android:layout_marginTop="5dp"
                 android:textSize="20sp"
                 android:textColor="@color/text_secondary"
                 android:fontFamily="@font/cairo"
@@ -174,7 +170,7 @@
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
 
             android:orientation="vertical"
             android:paddingStart="20dp"
@@ -197,7 +193,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:layout_marginTop="5dp"
                 android:textSize="20sp"
                 android:textColor="@color/text_secondary"
                 android:fontFamily="@font/cairo"
@@ -215,7 +210,6 @@
                 />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
-
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -249,6 +243,5 @@
         android:textSize="18sp"
         android:fontFamily="@font/cairo"
         />
-
 
 </androidx.appcompat.widget.LinearLayoutCompat>
