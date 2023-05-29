@@ -52,6 +52,21 @@ public class RegisterActivity extends AppCompatActivity {
             textView.setText("");
         }
 
+        // CHECK FIELDS FOR CORRECT INPUTS
+        if (!input_password.equals(input_conf_password)) {
+            editTextConfPassInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, Global.BADGE_DANGER, 0);
+            editTextPassInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, Global.BADGE_DANGER, 0);
+            // SHOW USER PASSWORDS DON'T MATCH
+            textViewPassError.setText(Global.PASSWORDS_DONT_MATCH_STRING);
+            textViewConfPassError.setText(Global.PASSWORDS_DONT_MATCH_STRING);
+
+        }
+        if (!input_email.contains("@")) {
+            editTextEmailInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, Global.BADGE_DANGER, 0);
+            // SHOW USER THAT EMAIL SHOULD CONTAIN '@'
+            textViewEmailError.setText(Global.EMAIL_NOT_VALID_STRING);
+        }
+
         // CHECK FOR EACH FIELD IF IT'S EMPTY THEN PUT A DANGER BADGE AT THE RIGHT OF THE EDITTEXT
         if (input_name.equals("")) {
             editTextNameInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, Global.BADGE_DANGER, 0);
@@ -76,23 +91,6 @@ public class RegisterActivity extends AppCompatActivity {
             textViewConfPassError.setText(Global.REQUIRED_FIELD_STRING);
 
         }
-
-
-        // CHECK FIELDS FOR CORRECT INPUTS
-        if (!input_password.equals(input_conf_password)) {
-            editTextConfPassInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, Global.BADGE_DANGER, 0);
-            editTextPassInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, Global.BADGE_DANGER, 0);
-            // SHOW USER PASSWORDS DON'T MATCH
-            textViewPassError.setText(Global.PASSWORDS_DONT_MATCH_STRING);
-            textViewConfPassError.setText(Global.PASSWORDS_DONT_MATCH_STRING);
-
-        }
-        if (!input_email.contains("@")) {
-            editTextEmailInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, Global.BADGE_DANGER, 0);
-            // SHOW USER THAT EMAIL SHOULD CONTAIN '@'
-            textViewEmailError.setText(Global.EMAIL_NOT_VALID_STRING);
-        }
-
 
         // REGISTER USER TO DATABASE!!!
     }
