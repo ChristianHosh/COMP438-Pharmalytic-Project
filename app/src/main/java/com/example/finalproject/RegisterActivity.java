@@ -44,7 +44,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         // PUT SUCCESS BADGE FOR ALL EDITTEXT
         for (EditText editText : Arrays.asList(editTextPassInput, editTextConfPassInput, editTextNameInput, editTextEmailInput)) {
-            editText.setCompoundDrawablesWithIntrinsicBounds(0, 0, Global.BADGE_SUCCESS, 0);
+            editText.setCompoundDrawablesWithIntrinsicBounds(0, 0, CommonGlobal.UI.BADGE_SUCCESS, 0);
         }
 
         // REMOVE ERROR MESSAGES
@@ -54,41 +54,41 @@ public class RegisterActivity extends AppCompatActivity {
 
         // CHECK FIELDS FOR CORRECT INPUTS
         if (!input_password.equals(input_conf_password)) {
-            editTextConfPassInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, Global.BADGE_DANGER, 0);
-            editTextPassInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, Global.BADGE_DANGER, 0);
+            editTextConfPassInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, CommonGlobal.UI.BADGE_DANGER, 0);
+            editTextPassInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, CommonGlobal.UI.BADGE_DANGER, 0);
             // SHOW USER PASSWORDS DON'T MATCH
-            textViewPassError.setText(Global.PASSWORDS_DONT_MATCH_STRING);
-            textViewConfPassError.setText(Global.PASSWORDS_DONT_MATCH_STRING);
+            textViewPassError.setText(CommonGlobal.STRING.PASSWORDS_DONT_MATCH_STRING);
+            textViewConfPassError.setText(CommonGlobal.STRING.PASSWORDS_DONT_MATCH_STRING);
 
         }
         if (!input_email.contains("@")) {
-            editTextEmailInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, Global.BADGE_DANGER, 0);
+            editTextEmailInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, CommonGlobal.UI.BADGE_DANGER, 0);
             // SHOW USER THAT EMAIL SHOULD CONTAIN '@'
-            textViewEmailError.setText(Global.EMAIL_NOT_VALID_STRING);
+            textViewEmailError.setText(CommonGlobal.STRING.EMAIL_NOT_VALID_STRING);
         }
 
         // CHECK FOR EACH FIELD IF IT'S EMPTY THEN PUT A DANGER BADGE AT THE RIGHT OF THE EDITTEXT
         if (input_name.equals("")) {
-            editTextNameInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, Global.BADGE_DANGER, 0);
+            editTextNameInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, CommonGlobal.UI.BADGE_DANGER, 0);
             // SHOW USER REQUIRED FIELD
-            textViewNameError.setText(Global.REQUIRED_FIELD_STRING);
+            textViewNameError.setText(CommonGlobal.STRING.REQUIRED_FIELD_STRING);
 
         }
         if (input_email.equals("")) {
-            editTextEmailInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, Global.BADGE_DANGER, 0);
+            editTextEmailInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, CommonGlobal.UI.BADGE_DANGER, 0);
             // SHOW USER REQUIRED FIELD
-            textViewEmailError.setText(Global.REQUIRED_FIELD_STRING);
+            textViewEmailError.setText(CommonGlobal.STRING.REQUIRED_FIELD_STRING);
         }
         if (input_password.equals("")) {
-            editTextPassInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, Global.BADGE_DANGER, 0);
+            editTextPassInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, CommonGlobal.UI.BADGE_DANGER, 0);
             // SHOW USER REQUIRED FIELD
-            textViewPassError.setText(Global.REQUIRED_FIELD_STRING);
+            textViewPassError.setText(CommonGlobal.STRING.REQUIRED_FIELD_STRING);
 
         }
         if (input_conf_password.equals("")) {
-            editTextConfPassInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, Global.BADGE_DANGER, 0);
+            editTextConfPassInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, CommonGlobal.UI.BADGE_DANGER, 0);
             // SHOW USER REQUIRED FIELD
-            textViewConfPassError.setText(Global.REQUIRED_FIELD_STRING);
+            textViewConfPassError.setText(CommonGlobal.STRING.REQUIRED_FIELD_STRING);
 
         }
 
