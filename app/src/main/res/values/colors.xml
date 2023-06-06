@@ -3,12 +3,16 @@
 
 <!--    MAIN COLOR-->
     <color name="body_bg">#212529</color>
-    <color name="secondary_bg">#343A40</color>
-    <color name="tertiary_bg">#343A40</color>
     <color name="emphasis_color">#FFFFFF</color>
     <color name="border_color">#495057</color>
 
-<!--    TEXT COLOR-->
+    <color name="secondary">#8A9198</color>
+    <color name="secondary_bg">#343A40</color>
+
+    <color name="tertiary">#676D73</color>
+    <color name="tertiary_bg">#343A40</color>
+
+    <!--    TEXT COLOR-->
     <color name="text_emphasis">#FFFFFF</color>
     <color name="text_secondary">#CED4DA</color>
     <color name="text_tertiary">#7B858E</color>

@@ -8,240 +8,217 @@
     android:padding="10dp"
     android:paddingStart="30dp"
     android:paddingEnd="10dp"
+
     tools:context=".RegisterActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-
-        android:text="@string/reg_get_started"
-        android:textColor="@color/text_emphasis"
-        android:textSize="32sp"
-        android:fontFamily="@font/cairo"
-        android:textStyle="bold"
-        />
-
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <!--        NAME-->
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-
-            android:orientation="vertical"
-            android:paddingStart="20dp"
-            android:paddingEnd="10dp">
+            android:orientation="vertical">
 
             <TextView
+                style="@style/text_h1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:fontFamily="@font/cairo"
-                android:textColor="@color/text_secondary"
-                android:textSize="22sp"
+                android:layout_marginTop="20dp"
 
-                android:labelFor="@+id/in_name"
-                android:text="@string/reg_name"
-                />
+                android:text="@string/reg_get_started" />
 
-            <EditText
-                android:id="@+id/in_name"
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
 
-                android:textSize="20sp"
-                android:textColor="@color/text_secondary"
-                android:fontFamily="@font/cairo"
+                <!--        NAME-->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
 
-                android:autofillHints="name"
-                android:inputType="text"
-                />
+                    android:orientation="vertical"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="10dp">
 
-            <TextView
-                android:id="@+id/error_msg_name"
+                    <TextView
+                        style="@style/text_form_label"
+                        android:layout_width="wrap_content"
+
+                        android:layout_height="wrap_content"
+                        android:labelFor="@+id/in_name"
+                        android:text="@string/reg_name" />
+
+                    <EditText
+                        android:id="@+id/in_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:autofillHints="name"
+                        android:fontFamily="@font/cairo"
+                        android:inputType="text"
+
+                        android:textColor="@color/text_secondary"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/error_msg_name"
+                        style="@style/text_form_error"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <!--        EMAIL-->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+
+                    android:orientation="vertical"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="10dp">
+
+                    <TextView
+                        style="@style/text_form_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:labelFor="@+id/in_email"
+                        android:text="@string/reg_e_mail" />
+
+                    <EditText
+                        android:id="@+id/in_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:autofillHints="emailAddress"
+                        android:fontFamily="@font/cairo"
+                        android:inputType="textEmailAddress"
+
+                        android:textColor="@color/text_secondary"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/error_msg_email"
+                        style="@style/text_form_error"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <!--        PASSWORD-->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+
+                    android:orientation="vertical"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="10dp">
+
+                    <TextView
+                        style="@style/text_form_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:labelFor="@+id/in_password"
+                        android:text="@string/reg_password" />
+
+                    <EditText
+                        android:id="@+id/in_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="password"
+
+                        android:fontFamily="@font/cairo"
+                        android:inputType="textPassword"
+                        android:maxWidth="480dp"
+
+                        android:textColor="@color/text_secondary"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/error_msg_password"
+                        style="@style/text_form_error"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <!--        CONFIRM PASSWORD-->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+
+                    android:orientation="vertical"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="10dp">
+
+                    <TextView
+                        style="@style/text_form_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:labelFor="@+id/in_confirm_password"
+                        android:text="@string/reg_confirm_password" />
+
+                    <EditText
+                        android:id="@+id/in_confirm_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:autofillHints="password"
+                        android:fontFamily="@font/cairo"
+                        android:inputType="textPassword"
+
+                        android:textColor="@color/text_secondary"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/error_msg_confirm_password"
+                        style="@style/text_form_error"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_signup"
+                style="@style/button_primary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/danger_text"
+                android:layout_gravity="center"
+
+                android:layout_marginTop="20dp"
+
+                android:paddingHorizontal="50dp"
+                android:text="@string/reg_sign_up"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/text_login_redirect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+
                 android:fontFamily="@font/cairo"
-                />
 
-
+                android:text="@string/reg_redirect"
+                android:textColor="@color/text_tertiary"
+                android:textSize="18sp" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
-        <!--        EMAIL-->
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
 
-            android:orientation="vertical"
-            android:paddingStart="20dp"
-            android:paddingEnd="10dp"
-            >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:fontFamily="@font/cairo"
-                android:textColor="@color/text_secondary"
-                android:textSize="22sp"
-
-                android:text="@string/reg_e_mail"
-                android:labelFor="@+id/in_email"
-                />
-
-            <EditText
-                android:id="@+id/in_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:textSize="20sp"
-                android:textColor="@color/text_secondary"
-                android:fontFamily="@font/cairo"
-
-                android:autofillHints="emailAddress"
-                android:inputType="textEmailAddress"
-                />
-
-            <TextView
-                android:id="@+id/error_msg_email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/danger_text"
-                android:fontFamily="@font/cairo"
-                />
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-        <!--        PASSWORD-->
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-
-            android:orientation="vertical"
-            android:paddingStart="20dp"
-            android:paddingEnd="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:fontFamily="@font/cairo"
-                android:textColor="@color/text_secondary"
-                android:textSize="22sp"
-
-                android:labelFor="@+id/in_password"
-                android:text="@string/reg_password"
-                />
-
-            <EditText
-                android:id="@+id/in_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:maxWidth="480dp"
-
-                android:textSize="20sp"
-                android:textColor="@color/text_secondary"
-                android:fontFamily="@font/cairo"
-
-                android:autofillHints="password"
-                android:inputType="textPassword"
-                />
-
-            <TextView
-                android:id="@+id/error_msg_password"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/danger_text"
-                android:fontFamily="@font/cairo"
-                />
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-        <!--        CONFIRM PASSWORD-->
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-
-            android:orientation="vertical"
-            android:paddingStart="20dp"
-            android:paddingEnd="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:textColor="@color/text_secondary"
-                android:textSize="22sp"
-                android:fontFamily="@font/cairo"
-
-                android:labelFor="@+id/in_confirm_password"
-                android:text="@string/reg_confirm_password"
-                />
-
-            <EditText
-                android:id="@+id/in_confirm_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:textSize="20sp"
-                android:textColor="@color/text_secondary"
-                android:fontFamily="@font/cairo"
-
-                android:autofillHints="password"
-                android:inputType="textPassword"
-                />
-
-            <TextView
-                android:id="@+id/error_msg_confirm_password"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/danger_text"
-                android:fontFamily="@font/cairo"
-                />
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_signup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-
-        android:layout_marginTop="20dp"
-        android:background="@drawable/btn_primary"
-
-        android:paddingHorizontal="50dp"
-        android:text="@string/reg_sign_up"
-        android:textColor="@color/text_emphasis"
-        android:fontFamily="@font/cairo"
-        android:textSize="20sp"
-
-        />
-
-    <TextView
-        android:id="@+id/text_login_redirect"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-
-        android:text="@string/reg_redirect"
-
-        android:textColor="@color/text_tertiary"
-        android:textSize="18sp"
-        android:fontFamily="@font/cairo"
-        />
+    </ScrollView>
 
 </androidx.appcompat.widget.LinearLayoutCompat>
