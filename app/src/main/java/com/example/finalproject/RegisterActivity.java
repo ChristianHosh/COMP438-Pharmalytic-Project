@@ -1,5 +1,6 @@
 package com.example.finalproject;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -21,7 +22,7 @@ public class RegisterActivity extends AppCompatActivity {
     private TextView textViewEmailError;
     private TextView textViewPassError;
     private TextView textViewConfPassError;
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,12 +32,19 @@ public class RegisterActivity extends AppCompatActivity {
         setMethods();
     }
 
+    @Override
+    public void onBackPressed() {
+        showPopup();
+
+    }
+
     private void setMethods() {
-        buttonSignUp.setOnClickListener(e -> signUp());
+        buttonSignUp.setOnClickListener(e -> validateSignUpFields());
         textViewLoginRedirect.setOnClickListener(e -> redirectToLogin());
     }
 
-    private void signUp(){
+    private void validateSignUpFields() {
+        boolean canSignUp = true;
         String input_name = editTextNameInput.getText().toString();
         String input_email = editTextEmailInput.getText().toString();
         String input_password = editTextPassInput.getText().toString();
@@ -48,7 +56,7 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
         // REMOVE ERROR MESSAGES
-        for (TextView textView: Arrays.asList(textViewConfPassError,textViewEmailError,textViewNameError,textViewPassError)){
+        for (TextView textView : Arrays.asList(textViewConfPassError, textViewEmailError, textViewNameError, textViewPassError)) {
             textView.setText("");
         }
 
@@ -59,12 +67,21 @@ public class RegisterActivity extends AppCompatActivity {
             // SHOW USER PASSWORDS DON'T MATCH
             textViewPassError.setText(CommonGlobal.STRING.PASSWORDS_DONT_MATCH_STRING);
             textViewConfPassError.setText(CommonGlobal.STRING.PASSWORDS_DONT_MATCH_STRING);
+            canSignUp = false;
+        }
+        if (input_password.length() < 8){
+            editTextConfPassInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, CommonGlobal.UI.BADGE_DANGER, 0);
+            editTextPassInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, CommonGlobal.UI.BADGE_DANGER, 0);
+            //SHOW USER PASSWORD IS TOO SHORT
+            textViewPassError.setText(CommonGlobal.STRING.PASSWORD_SHORT);
+            textViewConfPassError.setText(CommonGlobal.STRING.PASSWORD_SHORT);
 
         }
-        if (!input_email.contains("@")) {
+        if (!input_email.contains("@") && input_email.length() < 6) {
             editTextEmailInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, CommonGlobal.UI.BADGE_DANGER, 0);
             // SHOW USER THAT EMAIL SHOULD CONTAIN '@'
             textViewEmailError.setText(CommonGlobal.STRING.EMAIL_NOT_VALID_STRING);
+            canSignUp = false;
         }
 
         // CHECK FOR EACH FIELD IF IT'S EMPTY THEN PUT A DANGER BADGE AT THE RIGHT OF THE EDITTEXT
@@ -72,7 +89,7 @@ public class RegisterActivity extends AppCompatActivity {
             editTextNameInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, CommonGlobal.UI.BADGE_DANGER, 0);
             // SHOW USER REQUIRED FIELD
             textViewNameError.setText(CommonGlobal.STRING.REQUIRED_FIELD_STRING);
-
+            canSignUp = false;
         }
         if (input_email.equals("")) {
             editTextEmailInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, CommonGlobal.UI.BADGE_DANGER, 0);
@@ -83,24 +100,33 @@ public class RegisterActivity extends AppCompatActivity {
             editTextPassInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, CommonGlobal.UI.BADGE_DANGER, 0);
             // SHOW USER REQUIRED FIELD
             textViewPassError.setText(CommonGlobal.STRING.REQUIRED_FIELD_STRING);
-
+            canSignUp = false;
         }
         if (input_conf_password.equals("")) {
             editTextConfPassInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, CommonGlobal.UI.BADGE_DANGER, 0);
             // SHOW USER REQUIRED FIELD
             textViewConfPassError.setText(CommonGlobal.STRING.REQUIRED_FIELD_STRING);
-
         }
 
         // REGISTER USER TO DATABASE!!!
+        if (!canSignUp){
+            return;
+        }
+
+        signUp(input_name,input_email,input_password);
     }
 
-    private void redirectToLogin(){
+    private void signUp(String input_name, String input_email, String input_password) {
+
+    }
+
+    private void redirectToLogin() {
         Toast.makeText(this, "This Works!", Toast.LENGTH_SHORT).show();
 
         // REDIRECTS TO LOGIN PAGE!!!
 
     }
+
     private void getViews() {
         buttonSignUp = findViewById(R.id.btn_signup);
         editTextNameInput = findViewById(R.id.in_name);
@@ -113,5 +139,10 @@ public class RegisterActivity extends AppCompatActivity {
         textViewEmailError = findViewById(R.id.error_msg_email);
         textViewPassError = findViewById(R.id.error_msg_password);
         textViewConfPassError = findViewById(R.id.error_msg_confirm_password);
+    }
+
+    private void showPopup() {
+        // Inflate the layout for the custom popup
+
     }
 }

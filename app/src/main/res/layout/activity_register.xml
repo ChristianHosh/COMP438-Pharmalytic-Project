@@ -21,7 +21,7 @@
             android:orientation="vertical">
 
             <TextView
-                style="@style/text_h1"
+                style="@style/text.h1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
@@ -46,7 +46,7 @@
                     android:paddingEnd="10dp">
 
                     <TextView
-                        style="@style/text_form_label"
+                        style="@style/text.form_label"
                         android:layout_width="wrap_content"
 
                         android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
 
                     <TextView
                         android:id="@+id/error_msg_name"
-                        style="@style/text_form_error"
+                        style="@style/text.form_error"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -85,7 +85,7 @@
                     android:paddingEnd="10dp">
 
                     <TextView
-                        style="@style/text_form_label"
+                        style="@style/text.form_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
@@ -106,7 +106,7 @@
 
                     <TextView
                         android:id="@+id/error_msg_email"
-                        style="@style/text_form_error"
+                        style="@style/text.form_error"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -123,7 +123,7 @@
                     android:paddingEnd="10dp">
 
                     <TextView
-                        style="@style/text_form_label"
+                        style="@style/text.form_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
@@ -145,7 +145,7 @@
 
                     <TextView
                         android:id="@+id/error_msg_password"
-                        style="@style/text_form_error"
+                        style="@style/text.form_error"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -162,7 +162,7 @@
                     android:paddingEnd="10dp">
 
                     <TextView
-                        style="@style/text_form_label"
+                        style="@style/text.form_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
@@ -183,7 +183,7 @@
 
                     <TextView
                         android:id="@+id/error_msg_confirm_password"
-                        style="@style/text_form_error"
+                        style="@style/text.form_error"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -193,7 +193,7 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_signup"
-                style="@style/button_primary"
+                style="@style/button.primary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

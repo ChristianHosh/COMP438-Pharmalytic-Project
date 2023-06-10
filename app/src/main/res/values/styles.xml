@@ -1,52 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="text_h1">
+<!--    TEXT STYLES-->
+    <style name="text">
+        <item name="android:fontFamily">@font/cairo</item>
+    </style>
+
+    <style name="text.h1">
         <item name="android:textColor">@color/text_emphasis</item>
         <item name="android:textSize">32sp</item>
-        <item name="android:fontFamily">@font/cairo</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="text_h2">
+    <style name="text.h2">
         <item name="android:textColor">@color/text_emphasis</item>
         <item name="android:textSize">28sp</item>
-        <item name="android:fontFamily">@font/cairo</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="text_h3">
+    <style name="text.h3">
         <item name="android:textColor">@color/text_emphasis</item>
         <item name="android:textSize">24sp</item>
-        <item name="android:fontFamily">@font/cairo</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="text_form_label">
-        <item name="android:fontFamily">@font/cairo</item>
+    <style name="text.form_label">
         <item name="android:textColor">@color/text_secondary</item>
         <item name="android:textSize">22sp</item>
     </style>
 
-    <style name="text_form_error">
-        <item name="android:fontFamily">@font/cairo</item>
+    <style name="text.form_error">
         <item name="android:textColor">@color/danger_text</item>
         <item name="android:textSize">16sp</item>
     </style>
 
-    <style name="button_secondary">
-        <item name="android:background">@drawable/btn_secondary</item>
+<!--    BUTTON STYLES-->
+    <style name="button">
         <item name="android:fontFamily">@font/cairo</item>
         <item name="android:textColor">@color/text_emphasis</item>
         <item name="android:textFontWeight">600</item>
         <item name="android:paddingHorizontal">10dp</item>
     </style>
 
-    <style name="button_primary">
+    <style name="button.primary">
         <item name="android:background">@drawable/btn_primary</item>
-        <item name="android:fontFamily">@font/cairo</item>
-        <item name="android:textColor">@color/text_emphasis</item>
-        <item name="android:textFontWeight">600</item>
-        <item name="android:paddingHorizontal">10dp</item>
     </style>
+
+    <style name="button.secondary">
+        <item name="android:background">@drawable/btn_secondary</item>
+    </style>
+
+   <style name="button.success">
+       <item name="android:background">@drawable/btn_success</item>
+   </style>
+
+    <style name="button.danger">
+        <item name="android:background">@drawable/btn_danger</item>
+    </style>
+
+
 </resources>

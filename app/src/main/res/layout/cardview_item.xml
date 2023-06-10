@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_item_card"
     android:layout_width="match_parent"
-    android:layout_height="220dp">
+    android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/card"
+        android:background="@drawable/secondary_rounded_border"
         android:paddingHorizontal="20dp"
         android:paddingVertical="10dp"
 
@@ -15,7 +16,7 @@
 
         <TextView
             android:id="@+id/card_item_title"
-            style="@style/text_h3"
+            style="@style/text.h3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/placeholder_item_title"
@@ -27,12 +28,14 @@
         <TextView
             android:id="@+id/card_item_description"
             android:layout_width="211dp"
-            android:layout_height="88dp"
+            android:layout_height="wrap_content"
 
             android:layout_marginTop="12dp"
+            android:layout_marginBottom="6dp"
 
             android:text="@string/placeholder_item_description"
             android:textColor="@color/text_secondary"
+
             app:layout_constraintBottom_toTopOf="@+id/button_layout"
             app:layout_constraintEnd_toStartOf="@+id/card_item_image"
             app:layout_constraintHorizontal_bias="0.0"
@@ -52,18 +55,19 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/button_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/button_layout"
 
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/card_item_image"
+            app:layout_constraintHorizontal_bias="0.046"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/card_item_description">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/card_item_btn_add"
-                style="@style/button_primary"
+                style="@style/button.primary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
@@ -73,7 +77,7 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/card_item_btn_view"
-                style="@style/button_secondary"
+                style="@style/button.secondary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 

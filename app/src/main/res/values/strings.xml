@@ -12,4 +12,8 @@
     <string name="item_image_preview">Item Image Preview</string>
     <string name="add_to_cart">ADD TO CART</string>
     <string name="view">VIEW</string>
+    <string name="do_you_want_to_leave">Do you want to leave?</string>
+    <string name="are_you_sure">ARE YOU SURE?</string>
+    <string name="yes">YES</string>
+    <string name="no">NO</string>
 </resources>
