@@ -1,5 +1,6 @@
 package com.example.finalproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -120,8 +121,10 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void redirectToLogin() {
-        Toast.makeText(this, "This Works!", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
 
+        finish();
         // REDIRECTS TO LOGIN PAGE!!!
 
     }
