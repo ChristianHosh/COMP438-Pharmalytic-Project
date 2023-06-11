@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
@@ -121,12 +120,11 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void redirectToLogin() {
+        // REDIRECTS TO LOGIN PAGE!!!
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
 
         finish();
-        // REDIRECTS TO LOGIN PAGE!!!
-
     }
 
     private void getViews() {
