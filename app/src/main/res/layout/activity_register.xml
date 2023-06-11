@@ -89,11 +89,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
-                        android:labelFor="@+id/in_email"
+                        android:labelFor="@+id/in_login_email"
                         android:text="@string/reg_e_mail" />
 
                     <EditText
-                        android:id="@+id/in_email"
+                        android:id="@+id/in_login_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
 

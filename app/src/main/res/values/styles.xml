@@ -24,6 +24,11 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="text.subtitle">
+        <item name="android:textColor">@color/text_tertiary</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
     <style name="text.form_label">
         <item name="android:textColor">@color/text_secondary</item>
         <item name="android:textSize">22sp</item>
@@ -57,6 +62,8 @@
     <style name="button.danger">
         <item name="android:background">@drawable/btn_danger</item>
     </style>
+
+
 
 
 </resources>

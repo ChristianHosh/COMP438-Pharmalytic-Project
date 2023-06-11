@@ -1,6 +1,5 @@
 package com.example.finalproject;
 
-import android.app.Dialog;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -22,7 +21,7 @@ public class RegisterActivity extends AppCompatActivity {
     private TextView textViewEmailError;
     private TextView textViewPassError;
     private TextView textViewConfPassError;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -130,7 +129,7 @@ public class RegisterActivity extends AppCompatActivity {
     private void getViews() {
         buttonSignUp = findViewById(R.id.btn_signup);
         editTextNameInput = findViewById(R.id.in_name);
-        editTextEmailInput = findViewById(R.id.in_email);
+        editTextEmailInput = findViewById(R.id.in_login_email);
         editTextPassInput = findViewById(R.id.in_password);
         editTextConfPassInput = findViewById(R.id.in_confirm_password);
         textViewLoginRedirect = findViewById(R.id.text_login_redirect);

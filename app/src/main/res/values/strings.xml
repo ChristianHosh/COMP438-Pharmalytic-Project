@@ -16,4 +16,7 @@
     <string name="are_you_sure">ARE YOU SURE?</string>
     <string name="yes">YES</string>
     <string name="no">NO</string>
+    <string name="login">Login</string>
+    <string name="forgot_password">Forgot password</string>
+    <string name="don_t_have_an_account_register">Don\'t have an account? Register</string>
 </resources>
