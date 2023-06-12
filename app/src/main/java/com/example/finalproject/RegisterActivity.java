@@ -44,10 +44,10 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void validateSignUpFields() {
         boolean canSignUp = true;
-        String input_name = editTextNameInput.getText().toString();
-        String input_email = editTextEmailInput.getText().toString();
-        String input_password = editTextPassInput.getText().toString();
-        String input_conf_password = editTextConfPassInput.getText().toString();
+        String input_name = editTextNameInput.getText().toString().trim();
+        String input_email = editTextEmailInput.getText().toString().trim();
+        String input_password = editTextPassInput.getText().toString().trim();
+        String input_conf_password = editTextConfPassInput.getText().toString().trim();
 
         // PUT SUCCESS BADGE FOR ALL EDITTEXT
         for (EditText editText : Arrays.asList(editTextPassInput, editTextConfPassInput, editTextNameInput, editTextEmailInput)) {
@@ -68,7 +68,7 @@ public class RegisterActivity extends AppCompatActivity {
             textViewConfPassError.setText(CommonGlobal.STRING.PASSWORDS_DONT_MATCH_STRING);
             canSignUp = false;
         }
-        if (input_password.length() < 8){
+        if (input_password.length() < 8) {
             editTextConfPassInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, CommonGlobal.UI.BADGE_DANGER, 0);
             editTextPassInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, CommonGlobal.UI.BADGE_DANGER, 0);
             //SHOW USER PASSWORD IS TOO SHORT
@@ -108,14 +108,14 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
         // REGISTER USER TO DATABASE!!!
-        if (!canSignUp){
+        if (!canSignUp) {
             return;
         }
 
-        signUp(input_name,input_email,input_password);
+        signupUser(input_name, input_email, input_password);
     }
 
-    private void signUp(String input_name, String input_email, String input_password) {
+    private void signupUser(String input_name, String input_email, String input_password) {
 
     }
 
