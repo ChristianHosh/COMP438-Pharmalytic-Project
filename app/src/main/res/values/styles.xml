@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!--    HEADER STYLES-->
+    <style name="header">
+        <item name="android:fontFamily">@font/cairo</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
 <!--    TEXT STYLES-->
     <style name="text">
         <item name="android:fontFamily">@font/cairo</item>
