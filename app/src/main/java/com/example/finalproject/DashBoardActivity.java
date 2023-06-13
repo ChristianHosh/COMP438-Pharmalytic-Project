@@ -23,7 +23,6 @@ public class DashBoardActivity extends AppCompatActivity {
                 if(position == 0){
                   //  Intent intent = new Intent(DashBoardActivity.this, seconed.class);
                  //  startActivity(intent);
-                    System.out.println(" ");
                 }
             }
         };
