@@ -50,23 +50,20 @@
                         android:layout_width="wrap_content"
 
                         android:layout_height="wrap_content"
-                        android:labelFor="@+id/in_name"
+                        android:labelFor="@+id/reg_in_name"
                         android:text="@string/reg_name" />
 
                     <EditText
-                        android:id="@+id/in_name"
+                        android:id="@+id/reg_in_name"
+                        style="@style/text.form_input"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
 
                         android:autofillHints="name"
-                        android:fontFamily="@font/cairo"
-                        android:inputType="text"
-
-                        android:textColor="@color/text_secondary"
-                        android:textSize="20sp" />
+                        android:inputType="text" />
 
                     <TextView
-                        android:id="@+id/error_msg_name"
+                        android:id="@+id/reg_error_msg_name"
                         style="@style/text.form_error"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -89,23 +86,20 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
-                        android:labelFor="@+id/in_login_email"
+                        android:labelFor="@+id/reg_in_login_email"
                         android:text="@string/reg_e_mail" />
 
                     <EditText
-                        android:id="@+id/in_login_email"
+                        android:id="@+id/reg_in_login_email"
+                        style="@style/text.form_input"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
 
                         android:autofillHints="emailAddress"
-                        android:fontFamily="@font/cairo"
-                        android:inputType="textEmailAddress"
-
-                        android:textColor="@color/text_secondary"
-                        android:textSize="20sp" />
+                        android:inputType="textEmailAddress" />
 
                     <TextView
-                        android:id="@+id/error_msg_email"
+                        android:id="@+id/reg_error_msg_email"
                         style="@style/text.form_error"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -127,24 +121,20 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
-                        android:labelFor="@+id/in_password"
+                        android:labelFor="@+id/reg_in_password"
                         android:text="@string/reg_password" />
 
                     <EditText
-                        android:id="@+id/in_password"
+                        android:id="@+id/reg_in_password"
+                        style="@style/text.form_input"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:autofillHints="password"
 
-                        android:fontFamily="@font/cairo"
-                        android:inputType="textPassword"
-                        android:maxWidth="480dp"
-
-                        android:textColor="@color/text_secondary"
-                        android:textSize="20sp" />
+                        android:inputType="textPassword" />
 
                     <TextView
-                        android:id="@+id/error_msg_password"
+                        android:id="@+id/reg_error_msg_password"
                         style="@style/text.form_error"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -166,23 +156,20 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
-                        android:labelFor="@+id/in_confirm_password"
+                        android:labelFor="@+id/reg_in_confirm_password"
                         android:text="@string/reg_confirm_password" />
 
                     <EditText
-                        android:id="@+id/in_confirm_password"
+                        android:id="@+id/reg_in_confirm_password"
+                        style="@style/text.form_input"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
 
                         android:autofillHints="password"
-                        android:fontFamily="@font/cairo"
-                        android:inputType="textPassword"
-
-                        android:textColor="@color/text_secondary"
-                        android:textSize="20sp" />
+                        android:inputType="textPassword" />
 
                     <TextView
-                        android:id="@+id/error_msg_confirm_password"
+                        android:id="@+id/reg_error_msg_confirm_password"
                         style="@style/text.form_error"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -192,7 +179,7 @@
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_signup"
+                android:id="@+id/reg_btn_signup"
                 style="@style/button.primary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -205,7 +192,7 @@
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/text_login_redirect"
+                android:id="@+id/reg_text_login_redirect"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

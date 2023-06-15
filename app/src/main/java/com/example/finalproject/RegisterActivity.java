@@ -128,17 +128,17 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void getViews() {
-        buttonSignUp = findViewById(R.id.btn_signup);
-        editTextNameInput = findViewById(R.id.in_name);
-        editTextEmailInput = findViewById(R.id.in_login_email);
-        editTextPassInput = findViewById(R.id.in_password);
-        editTextConfPassInput = findViewById(R.id.in_confirm_password);
-        textViewLoginRedirect = findViewById(R.id.text_login_redirect);
+        buttonSignUp = findViewById(R.id.reg_btn_signup);
+        editTextNameInput = findViewById(R.id.reg_in_name);
+        editTextEmailInput = findViewById(R.id.reg_in_login_email);
+        editTextPassInput = findViewById(R.id.reg_in_password);
+        editTextConfPassInput = findViewById(R.id.reg_in_confirm_password);
+        textViewLoginRedirect = findViewById(R.id.reg_text_login_redirect);
 
-        textViewNameError = findViewById(R.id.error_msg_name);
-        textViewEmailError = findViewById(R.id.error_msg_email);
-        textViewPassError = findViewById(R.id.error_msg_password);
-        textViewConfPassError = findViewById(R.id.error_msg_confirm_password);
+        textViewNameError = findViewById(R.id.reg_error_msg_name);
+        textViewEmailError = findViewById(R.id.reg_error_msg_email);
+        textViewPassError = findViewById(R.id.reg_error_msg_password);
+        textViewConfPassError = findViewById(R.id.reg_error_msg_confirm_password);
     }
 
     private void showPopup() {

@@ -19,16 +19,9 @@
     <string name="login">Login</string>
     <string name="forgot_password">Forgot password</string>
     <string name="don_t_have_an_account_register">Don\'t have an account? Register</string>
-    <string name="Pharmalytic">Pharmalytic</string>
-    <string-array name="options">
-        <item>Prescription Medications</item>
-        <item> Over-the-Counter (OTC) Medications</item>
-        <item>Personal Care Products</item>
-        <item>Vitamins and Supplements</item>
-        <item>First Aid Supplies</item>
-        <item>Baby Care Products</item>
-        <item>Allergy Relief</item>
-    </string-array>
+    <string name="app_title">Pharmalytic</string>
+
     <string name="title_activity_main_list_view">MainListView</string>
     <string name="title_activity_list_view_m.xml">list_view_m.xml</string>
+    <string name="search">Search</string>
 </resources>

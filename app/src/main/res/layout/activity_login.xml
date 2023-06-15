@@ -40,23 +40,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:labelFor="@+id/in_login_email"
+                android:labelFor="@+id/log_in_login_email"
                 android:text="@string/reg_e_mail" />
 
             <EditText
-                android:id="@+id/in_login_email"
+                android:id="@+id/log_in_login_email"
+                style="@style/text.form_input"
                 android:layout_width="match_parent"
+
                 android:layout_height="wrap_content"
-
                 android:autofillHints="emailAddress"
-                android:fontFamily="@font/cairo"
-                android:inputType="textEmailAddress"
 
-                android:textColor="@color/text_secondary"
-                android:textSize="20sp" />
+                android:inputType="textEmailAddress" />
 
             <TextView
-                android:id="@+id/error_msg_email"
+                android:id="@+id/log_error_msg_email"
                 style="@style/text.form_error"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -77,24 +75,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:labelFor="@+id/in_password"
+                android:labelFor="@+id/log_in_password"
                 android:text="@string/reg_password" />
 
             <EditText
-                android:id="@+id/in_password"
+                android:id="@+id/log_in_password"
+
+                style="@style/text.form_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autofillHints="password"
 
-                android:fontFamily="@font/cairo"
-                android:inputType="textPassword"
-                android:maxWidth="480dp"
-
-                android:textColor="@color/text_secondary"
-                android:textSize="20sp" />
+                android:inputType="textPassword" />
 
             <TextView
-                android:id="@+id/error_msg_password"
+                android:id="@+id/log_error_msg_password"
                 style="@style/text.form_error"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -102,7 +97,7 @@
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_login"
+            android:id="@+id/log_btn_login"
             style="@style/button.primary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -118,7 +113,7 @@
 
 
     <TextView
-        android:id="@+id/text_forget_pass_redirect"
+        android:id="@+id/log_text_forget_pass_redirect"
         style="@style/text.subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -129,7 +124,7 @@
         android:text="@string/forgot_password" />
 
     <TextView
-        android:id="@+id/text_register_redirect"
+        android:id="@+id/log_text_register_redirect"
         style="@style/text.subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

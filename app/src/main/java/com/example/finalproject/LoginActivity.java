@@ -29,15 +29,15 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void getViews() {
-        editTextEmailInput = findViewById(R.id.in_login_email);
-        editTextPassInput = findViewById(R.id.in_password);
-        textViewEmailError = findViewById(R.id.error_msg_email);
-        textViewPassError = findViewById(R.id.error_msg_password);
+        editTextEmailInput = findViewById(R.id.log_in_login_email);
+        editTextPassInput = findViewById(R.id.log_in_password);
+        textViewEmailError = findViewById(R.id.log_error_msg_email);
+        textViewPassError = findViewById(R.id.log_error_msg_password);
 
-        textViewSignUpRedirect = findViewById(R.id.text_register_redirect);
-        textViewForgetPasswordRedirect = findViewById(R.id.text_forget_pass_redirect);
+        textViewSignUpRedirect = findViewById(R.id.log_text_register_redirect);
+        textViewForgetPasswordRedirect = findViewById(R.id.log_text_forget_pass_redirect);
 
-        buttonLogin = findViewById(R.id.btn_login);
+        buttonLogin = findViewById(R.id.log_btn_login);
     }
 
     @Override
@@ -58,7 +58,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void redirectToForgetPassword() {
+        Intent intent = new Intent(this, DashBoardActivity.class);
+        startActivity(intent);
 
+        finish();
     }
 
     private void redirectToSignUp() {

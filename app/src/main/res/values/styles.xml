@@ -2,11 +2,12 @@
 <resources>
 
     <!--    HEADER STYLES-->
-    <style name="header">
+        <style name="header">
         <item name="android:fontFamily">@font/cairo</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/text_secondary</item>
     </style>
+
 <!--    TEXT STYLES-->
     <style name="text">
         <item name="android:fontFamily">@font/cairo</item>
@@ -40,6 +41,11 @@
         <item name="android:textSize">22sp</item>
     </style>
 
+    <style name="text.form_input">
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
     <style name="text.form_error">
         <item name="android:textColor">@color/danger_text</item>
         <item name="android:textSize">16sp</item>
@@ -68,8 +74,6 @@
     <style name="button.danger">
         <item name="android:background">@drawable/btn_danger</item>
     </style>
-
-
 
 
 </resources>
