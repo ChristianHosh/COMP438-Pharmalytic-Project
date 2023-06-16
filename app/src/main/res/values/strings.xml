@@ -7,8 +7,8 @@
     <string name="reg_e_mail">E-Mail</string>
     <string name="reg_name">Name</string>
     <string name="reg_get_started">Get Started</string>
-    <string name="placeholder_item_title">Head and Shoulders</string>
-    <string name="placeholder_item_description"><![CDATA[Best Anti Dandruff Itchy scalp products from Head & Shoulders]]></string>
+    <string name="placeholder_item_title">Head &amp; Shoulders</string>
+    <string name="placeholder_item_description"><![CDATA[Best Anti Dandruff Itchy scalp product]]></string>
     <string name="item_image_preview">Item Image Preview</string>
     <string name="add_to_cart">ADD TO CART</string>
     <string name="view">VIEW</string>
@@ -24,4 +24,5 @@
     <string name="title_activity_main_list_view">MainListView</string>
     <string name="title_activity_list_view_m.xml">list_view_m.xml</string>
     <string name="search">Search</string>
+    <string name="placeholder_item_price">25.7$</string>
 </resources>

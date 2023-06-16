@@ -4,7 +4,6 @@
         <shape>
             <solid android:color="@color/secondary_bg"/>
             <stroke android:width="1sp" android:color="@color/border_color"/>
-            <corners android:radius="25dp"/>
         </shape>
     </item>
 </selector>

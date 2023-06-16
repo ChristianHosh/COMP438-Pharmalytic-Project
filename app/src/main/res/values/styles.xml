@@ -2,15 +2,16 @@
 <resources>
 
     <!--    HEADER STYLES-->
-        <style name="header">
+    <style name="header">
         <item name="android:fontFamily">@font/cairo</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/text_secondary</item>
     </style>
 
-<!--    TEXT STYLES-->
+    <!--    TEXT STYLES-->
     <style name="text">
         <item name="android:fontFamily">@font/cairo</item>
+        <item name="android:textSize">18sp</item>
     </style>
 
     <style name="text.h1">
@@ -29,6 +30,11 @@
         <item name="android:textColor">@color/text_emphasis</item>
         <item name="android:textSize">24sp</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="text.h4">
+        <item name="android:textColor">@color/text_emphasis</item>
+        <item name="android:textSize">22sp</item>
     </style>
 
     <style name="text.subtitle">
@@ -51,7 +57,7 @@
         <item name="android:textSize">16sp</item>
     </style>
 
-<!--    BUTTON STYLES-->
+    <!--    BUTTON STYLES-->
     <style name="button">
         <item name="android:fontFamily">@font/cairo</item>
         <item name="android:textColor">@color/text_emphasis</item>
@@ -67,12 +73,17 @@
         <item name="android:background">@drawable/btn_secondary</item>
     </style>
 
-   <style name="button.success">
-       <item name="android:background">@drawable/btn_success</item>
-   </style>
+    <style name="button.success">
+        <item name="android:background">@drawable/btn_success</item>
+    </style>
 
     <style name="button.danger">
         <item name="android:background">@drawable/btn_danger</item>
+    </style>
+
+    <style name="rounded_image">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">25dp</item>
     </style>
 
 

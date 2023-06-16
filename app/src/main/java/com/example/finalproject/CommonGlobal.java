@@ -5,6 +5,8 @@ public class CommonGlobal {
     public static class UI {
         public static final int BADGE_SUCCESS = R.drawable.badge_success;
         public static final int BADGE_DANGER = R.drawable.badge_danger;
+        public static final int DROP_DOWN_ARROW = R.drawable.baseline_arrow_drop_down_24;
+        public static final int DROP_UP_ARROW = R.drawable.baseline_arrow_drop_up_24;
     }
 
     public static class STRING {

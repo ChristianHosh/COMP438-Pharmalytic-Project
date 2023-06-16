@@ -4,90 +4,98 @@
     android:id="@+id/card_item_card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardBackgroundColor="@android:color/transparent"
-    app:cardElevation="2dp">
+    android:layout_marginHorizontal="5dp"
+    android:layout_marginTop="10dp"
+    app:cardBackgroundColor="@color/secondary_bg"
+    app:cardElevation="0dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/secondary_rounded_bordered"
-        android:paddingHorizontal="20dp"
-        android:paddingVertical="10dp"
+        android:background="@drawable/tertiary_rounded_bordered"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="5dp"
 
         >
 
-        <TextView
-            android:id="@+id/card_item_title"
-            style="@style/text.h3"
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/placeholder_item_title"
-
-
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/card_item_description"
-            android:layout_width="211dp"
-            android:layout_height="wrap_content"
-
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="6dp"
-
-            android:text="@string/placeholder_item_description"
-            android:textColor="@color/text_secondary"
-
-            app:layout_constraintBottom_toTopOf="@+id/button_layout"
-            app:layout_constraintEnd_toStartOf="@+id/card_item_image"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/card_item_title" />
-
-        <ImageView
-            android:id="@+id/card_item_image"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-
-            android:background="@drawable/card_image_placeholder"
-
-            android:contentDescription="@string/item_image_preview"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginStart="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toEndOf="@+id/card_item_image"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/button_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/card_item_image"
-            app:layout_constraintHorizontal_bias="0.046"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/card_item_description">
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/card_item_btn_add"
-                style="@style/button.primary"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/card_item_title"
+                style="@style/text.h4"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:layout_marginEnd="5dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/placeholder_item_title" />
 
-                android:text="@string/add_to_cart" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/card_item_btn_view"
-                style="@style/button.secondary"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/card_item_description"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:layout_marginStart="5dp"
+                android:text="@string/placeholder_item_description"
+                android:textColor="@color/text_secondary" />
 
-                android:text="@string/view" />
+
+            <TextView
+                android:id="@+id/card_item_price"
+                style="@style/text.form_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/placeholder_item_price"
+                android:textColor="@color/info_text" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/button_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/card_item_btn_add"
+                    style="@style/button.primary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginEnd="5dp"
+
+                    android:text="@string/add_to_cart" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/card_item_btn_view"
+                    style="@style/button.secondary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="5dp"
+
+                    android:text="@string/view" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/card_item_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:contentDescription="@string/item_image_preview"
+            android:src="@drawable/card_image_placeholder"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/rounded_image" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

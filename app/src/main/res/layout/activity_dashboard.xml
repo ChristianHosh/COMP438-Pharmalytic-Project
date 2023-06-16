@@ -11,7 +11,7 @@
         android:layout_height="80dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:background="@drawable/pharm"
+        android:background="@drawable/pharmalytic_header_text"
         android:contentDescription="@string/app_title" />
 
     <LinearLayout
@@ -50,7 +50,7 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/dash_listview_categories"
+        android:id="@+id/dash_recyclerview_categories"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -58,7 +58,7 @@
         android:layout_marginTop="50dp"
         android:scrollbars="vertical"
 
-        android:listSelector="@drawable/secondary_bordered_selectable"
+        android:listSelector="@drawable/secondary_bordered"
         />
 
 
