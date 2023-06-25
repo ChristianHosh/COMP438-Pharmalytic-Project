@@ -12,13 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalProject"
         tools:targetApi="31">
+
         <activity
             android:name=".DashBoardActivity"
             android:exported="true" />
 
 
         <activity
-            android:name=".LoginActivity"
+            android:name=".SplashScreenActivity"
             android:exported="true">
 
             <intent-filter>
@@ -28,10 +29,13 @@
             </intent-filter>
 
         </activity>
+
         <activity
             android:name=".RegisterActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".LoginActivity"
             android:exported="false">
-
         </activity>
     </application>
 

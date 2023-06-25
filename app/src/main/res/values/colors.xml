@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-<!--    MAIN COLOR-->
+    <color name="splashTxt">#CFD8DC</color>
+    <color name="dashTitle">#455A64</color>
+
+    <!--    MAIN COLOR-->
     <color name="body_bg">#212529</color>
     <color name="emphasis_color">#FFFFFF</color>
     <color name="border_color">#495057</color>
