@@ -8,6 +8,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import com.example.finalproject.globals.CommonGlobal;
+
 import java.util.Arrays;
 
 public class LoginActivity extends AppCompatActivity {

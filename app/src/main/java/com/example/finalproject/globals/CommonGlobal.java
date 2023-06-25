@@ -1,4 +1,6 @@
-package com.example.finalproject;
+package com.example.finalproject.globals;
+
+import com.example.finalproject.R;
 
 public class CommonGlobal {
 
@@ -14,6 +16,7 @@ public class CommonGlobal {
         public static final String REQUIRED_FIELD_STRING = "This is a required field!";
         public static final String PASSWORDS_DONT_MATCH_STRING = "Passwords should match!";
         public static final String EMAIL_NOT_VALID_STRING = "Email is not valid!";
+        public static final String EMAIL_IN_USE = "Email is already in use!";
     }
 
 

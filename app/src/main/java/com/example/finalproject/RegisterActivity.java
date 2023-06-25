@@ -2,13 +2,28 @@ package com.example.finalproject;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import com.example.finalproject.globals.CommonGlobal;
+import com.example.finalproject.globals.DbKeys;
+import com.google.firebase.Timestamp;
+import com.google.firebase.firestore.AggregateQuery;
+import com.google.firebase.firestore.AggregateQuerySnapshot;
+import com.google.firebase.firestore.AggregateSource;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+
 import java.util.Arrays;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
     private AppCompatButton buttonSignUp;
@@ -116,7 +131,65 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void signupUser(String input_name, String input_email, String input_password) {
+        FirebaseFirestore firestoreDB = FirebaseFirestore.getInstance();
 
+        Map<String, Object> user = new HashMap<>();
+
+        user.put(DbKeys.USER_FIELD_NAME, input_name);
+        user.put(DbKeys.USER_FIELD_PASSWORD, input_password);
+        user.put(DbKeys.USER_FIELD_EMAIL, input_email);
+        user.put(DbKeys.USER_FIELD_REG_DATE, new Timestamp(new Date()));
+
+        // QUERIES TO FIND DOCUMENTS IN THE USERS COLLECTION WHERE THEY ALREADY HAVE THE SAME EMAIL
+        Query query = firestoreDB.collection(DbKeys.COL_USERS).whereEqualTo(DbKeys.USER_FIELD_EMAIL, input_email);
+
+        AggregateQuery countQuery = query.count();
+        countQuery.get(AggregateSource.SERVER)
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        // GETS THE QUERY RESULT
+                        AggregateQuerySnapshot snapshot = task.getResult();
+
+                        // IF THERE IS MORE THAN ZERO DOCUMENTS WITH THE SAME EMAIL
+                        // THE USER WILL NOT BE ABLE TO REGISTER
+                        // EMAIL IS ALREADY IN USE
+                        long count = snapshot.getCount();
+
+                        if (count > 0) {
+                            // SHOW USER THAT EMAIL IS ALREADY IN USE
+                            editTextEmailInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, CommonGlobal.UI.BADGE_DANGER, 0);
+                            textViewEmailError.setText(CommonGlobal.STRING.EMAIL_IN_USE);
+
+                            // DOES NOT CONTINUE TO FULLY REGISTER
+                            return;
+                        }
+
+                        // IN THE OTHER CASE WHERE THE EMAIL IS NOT IN USE THEN THE USER REGISTERS
+                        DocumentReference documentReference = firestoreDB.collection(DbKeys.COL_USERS).document();
+                        documentReference.set(user)
+                                .addOnSuccessListener(success -> {
+
+                                    Log.d("REG SUCCESS", "DocumentSnapshot successfully written!");
+                                    Toast.makeText(this
+                                            , "Successful Registration!"
+                                            , Toast.LENGTH_SHORT).show();
+
+                                    redirectToLogin();
+
+                                }).addOnFailureListener(exception -> {
+
+                                    Log.d("REG ERROR", "DocumentSnapshot Failure: " + exception);
+                                    Toast.makeText(this
+                                            , "There was an error! Try again later"
+                                            , Toast.LENGTH_SHORT).show();
+
+
+                                });
+
+                    } else {
+                        Log.d("ERROR", "Accessing DB: ", task.getException());
+                    }
+                });
     }
 
     private void redirectToLogin() {

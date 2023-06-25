@@ -58,9 +58,9 @@
                         style="@style/text.form_input"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
                         android:autofillHints="name"
-                        android:inputType="text" />
+                        android:inputType="text"
+                        android:maxLength="30" />
 
                     <TextView
                         android:id="@+id/reg_error_msg_name"
@@ -94,9 +94,9 @@
                         style="@style/text.form_input"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
                         android:autofillHints="emailAddress"
-                        android:inputType="textEmailAddress" />
+                        android:inputType="textEmailAddress"
+                        android:maxLength="50" />
 
                     <TextView
                         android:id="@+id/reg_error_msg_email"
@@ -130,8 +130,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:autofillHints="password"
-
-                        android:inputType="textPassword" />
+                        android:inputType="textPassword"
+                        android:maxLength="20" />
 
                     <TextView
                         android:id="@+id/reg_error_msg_password"
@@ -164,9 +164,9 @@
                         style="@style/text.form_input"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
                         android:autofillHints="password"
-                        android:inputType="textPassword" />
+                        android:inputType="textPassword"
+                        android:maxLength="20" />
 
                     <TextView
                         android:id="@+id/reg_error_msg_confirm_password"

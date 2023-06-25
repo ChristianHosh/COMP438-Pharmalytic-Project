@@ -12,7 +12,7 @@ import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.finalproject.CommonGlobal;
+import com.example.finalproject.globals.CommonGlobal;
 import com.example.finalproject.R;
 
 import java.util.ArrayList;
