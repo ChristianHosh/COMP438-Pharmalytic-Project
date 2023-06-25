@@ -143,8 +143,8 @@ public class RegisterActivity extends AppCompatActivity {
         // QUERIES TO FIND DOCUMENTS IN THE USERS COLLECTION WHERE THEY ALREADY HAVE THE SAME EMAIL
         Query query = firestoreDB.collection(DbKeys.COL_USERS).whereEqualTo(DbKeys.USER_FIELD_EMAIL, input_email);
 
-        AggregateQuery countQuery = query.count();
-        countQuery.get(AggregateSource.SERVER)
+        AggregateQuery aggregateQuery = query.count();
+        aggregateQuery.get(AggregateSource.SERVER)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         // GETS THE QUERY RESULT

@@ -9,6 +9,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.finalproject.globals.CommonGlobal;
+import com.example.finalproject.globals.DbKeys;
+import com.google.firebase.firestore.AggregateQuery;
+import com.google.firebase.firestore.AggregateQuerySnapshot;
+import com.google.firebase.firestore.AggregateSource;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 
 import java.util.Arrays;
 
@@ -59,11 +65,15 @@ public class LoginActivity extends AppCompatActivity {
         textViewForgetPasswordRedirect.setOnClickListener(e -> redirectToForgetPassword());
     }
 
-    private void redirectToForgetPassword() {
+    private void redirectToHome() {
         Intent intent = new Intent(this, DashBoardActivity.class);
         startActivity(intent);
 
         finish();
+    }
+
+    private void redirectToForgetPassword() {
+
     }
 
     private void redirectToSignUp() {
@@ -115,6 +125,34 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void loginUser(String input_email, String input_password) {
+        FirebaseFirestore firestoreDB = FirebaseFirestore.getInstance();
+
+        Query query = firestoreDB.collection(DbKeys.COL_USERS)
+                .whereEqualTo(DbKeys.USER_FIELD_EMAIL, input_email)
+                .whereEqualTo(DbKeys.USER_FIELD_PASSWORD, input_password);
+
+        AggregateQuery aggregateQuery = query.count();
+        aggregateQuery.get(AggregateSource.SERVER)
+                .addOnCompleteListener(task -> {
+                    // GETS THE QUERY RESULT
+                    AggregateQuerySnapshot snapshot = task.getResult();
+
+                    // IF THERE IS NOT ONLY 1 DOCUMENT WITH THIS EMAIL AND PASSWORD
+                    // THEN IT WILL NOT THE USER GO TO THE HOME SCREEN
+                    long count = snapshot.getCount();
+                    if (count != 1) {
+                        // SHOW USER THAT EMAIL OR PASSWORD ARE INCORRECT
+                        editTextEmailInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, CommonGlobal.UI.BADGE_DANGER, 0);
+                        textViewEmailError.setText(CommonGlobal.STRING.INVALID_LOGIN);
+
+                        editTextPassInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, CommonGlobal.UI.BADGE_DANGER, 0);
+                        textViewPassError.setText(CommonGlobal.STRING.INVALID_LOGIN);
+                        // DOES NOT CONTINUE TO HOME SCREEN
+                        return;
+                    }
+
+                    redirectToHome();
+                });
 
     }
 }
