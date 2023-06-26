@@ -9,20 +9,35 @@
     app:cardBackgroundColor="@color/secondary_bg"
     app:cardElevation="0dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@drawable/tertiary_rounded_bordered"
+        android:orientation="horizontal"
         android:paddingHorizontal="10dp"
         android:paddingVertical="5dp"
 
         >
 
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/card_item_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/item_image_preview"
+            android:src="@drawable/card_image_placeholder"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/rounded_image" />
+
         <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_horizontal"
+            android:layout_marginStart="10dp"
             android:orientation="vertical"
-            android:layout_marginStart="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/card_item_image"
@@ -84,18 +99,5 @@
         </androidx.appcompat.widget.LinearLayoutCompat>
 
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/card_item_image"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:contentDescription="@string/item_image_preview"
-            android:src="@drawable/card_image_placeholder"
-
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:shapeAppearanceOverlay="@style/rounded_image" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 </androidx.cardview.widget.CardView>

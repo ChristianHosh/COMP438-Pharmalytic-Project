@@ -183,7 +183,6 @@ public class RegisterActivity extends AppCompatActivity {
                                             , "There was an error! Try again later"
                                             , Toast.LENGTH_SHORT).show();
 
-
                                 });
 
                     } else {
