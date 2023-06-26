@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    android:gravity="start"
+    tools:context=".Menu"
+    tools:ignore="MissingClass">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="start">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/button_Home"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:drawableLeft="@drawable/baseline_home_24"
+                android:drawablePadding="8dp"
+                android:text="Home"
+                android:backgroundTint="@color/secondary"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <Button
+                android:id="@+id/button_user"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:drawableLeft="@drawable/baseline_person_24"
+                android:drawablePadding="8dp"
+                android:text="User"
+                android:backgroundTint="@color/secondary"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <Button
+                android:id="@+id/button_messages"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:drawableLeft="@drawable/baseline_message_24"
+                android:drawablePadding="8dp"
+                android:text="Messages"
+                android:backgroundTint="@color/secondary"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <Button
+                android:id="@+id/button_location"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:drawableLeft="@drawable/baseline_location_on_24"
+                android:drawablePadding="8dp"
+                android:text="Location"
+                android:backgroundTint="@color/secondary" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <Button
+                android:id="@+id/button_setting"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:drawableLeft="@drawable/baseline_settings_24"
+                android:drawablePadding="8dp"
+                android:text="Settings"
+                android:backgroundTint="@color/secondary"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <Button
+                android:id="@+id/button_Logout"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:drawableLeft="@drawable/baseline_logout_24"
+                android:drawablePadding="8dp"
+                android:text="Logout"
+                android:backgroundTint="@color/secondary"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
