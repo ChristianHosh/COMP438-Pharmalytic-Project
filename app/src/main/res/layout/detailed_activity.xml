@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/body_bg"
+    android:orientation="vertical"
+    tools:context=".DetailedActivity">
+    <TextView
+        android:id="@+id/detailed_title"
+        style="@style/detailedItem"
+        android:layout_width="342dp"
+        android:layout_height="69dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:text="@string/placeholder_item_title"/>
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/detailed_img"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        app:srcCompat="@drawable/head_and_shoulders" />
+
+    <TextView
+        android:id="@+id/datailed_info"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="@string/HS_data"
+        style="@style/itemInfo"/>
+    <TextView
+        android:id="@+id/detailed_price"
+        style="@style/text.form_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/placeholder_item_price"
+        android:textColor="@color/info_text"
+        android:layout_marginStart="10dp"/>
+
+    <LinearLayout
+        android:layout_width="360dp"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="quantify:"
+            style="@style/text.form_input"/>
+        <NumberPicker
+            android:id="@+id/quantity"
+            android:layout_marginStart="5dp"
+            android:layout_width="50dp"
+            android:layout_height="80dp"
+            android:theme="@style/text.h1"
+            android:outlineSpotShadowColor="@color/text_emphasis"
+            />
+        <Button
+            android:layout_marginStart="80dp"
+            android:id="@+id/addToCart"
+            android:layout_width="150dp"
+            android:layout_height="70dp"
+            android:text="@string/add_to_cart"
+            style="@style/button.primary"
+            android:drawableLeft="@drawable/plus"
+            android:drawablePadding="8dp"
+            android:onClick="btnAddToCart"
+            />
+
+
+    </LinearLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
