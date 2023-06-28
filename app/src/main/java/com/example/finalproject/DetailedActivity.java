@@ -36,7 +36,7 @@ public class DetailedActivity extends Activity {
         addToCart = findViewById(R.id.addToCart);
         quantity = findViewById(R.id.quantity);
     }
-
+    ////////////////////////
     private void setQuantity()
     {
         addToCart.setClickable(false);
