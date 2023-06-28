@@ -41,7 +41,7 @@ public class DetailedActivity extends Activity {
     {
         addToCart.setClickable(false);
         quantity.setMinValue(0);
-        quantity.setMaxValue(50);
+        quantity.setMaxValue(60);
         quantity.setValue(0);
         quantity.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override

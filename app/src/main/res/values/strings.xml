@@ -1,4 +1,7 @@
 <resources>
+    <string name="HS_data">About this item:\nSCALP SHIELD TECHNOLOGY: Use regularly for a continuous invisible shield of protection against dandruff, itch+ and dryness, renewing\n72 HOUR PROTECTION: powerful, long-lasting dandruff protection\nMulti-symptom relief offers proven protection from flakes, itch* and dryness (*flakes and itch associated with dandruff)\nNourishes to relieve dandruff symptoms while cleansing hair and scalp* (*with regular use)\nLight classic scent leaves hair smelling fresh and clean
+    </string>
+    <string name="data"></string>
     <string name="app_name">FinalProject</string>
     <string name="reg_redirect"><u>Already a member? Sign In</u></string>
     <string name="reg_sign_up">Sign Up</string>
@@ -8,9 +11,10 @@
     <string name="reg_name">Name</string>
     <string name="reg_get_started">Get Started</string>
     <string name="placeholder_item_title">Head &amp; Shoulders</string>
-    <string name="placeholder_item_description"><![CDATA[Best Anti Dandruff Itchy scalp product]]></string>
+    <string name="placeholder_item_description"><![CDATA[Dandruff Shampoo, Anti-Dandruff Treatment, Classic Clean for Daily Use]]></string>
     <string name="item_image_preview">Item Image Preview</string>
     <string name="add_to_cart">ADD TO CART</string>
+    <string name="buy_now">BUY NOW</string>
     <string name="view">VIEW</string>
     <string name="do_you_want_to_leave">Do you want to leave?</string>
     <string name="are_you_sure">ARE YOU SURE?</string>
@@ -24,5 +28,5 @@
     <string name="title_activity_main_list_view">MainListView</string>
     <string name="title_activity_list_view_m.xml">list_view_m.xml</string>
     <string name="search">Search</string>
-    <string name="placeholder_item_price">25.7$</string>
+    <string name="placeholder_item_price">25.7₪</string>
 </resources>
