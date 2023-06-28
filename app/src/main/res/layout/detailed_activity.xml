@@ -71,7 +71,6 @@
             android:onClick="btnAddToCart"
             />
 
-
     </LinearLayout>
 
 </androidx.appcompat.widget.LinearLayoutCompat>
