@@ -18,42 +18,64 @@
         android:layout_gravity="center"
         android:text="@string/placeholder_item_title" />
 
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/detailed_img"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_gravity="center_horizontal"
-        app:shapeAppearanceOverlay="@style/rounded_image"
-        app:srcCompat="@drawable/card_image_placeholder" />
-
-    <View
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="20dp"
-        android:background="@color/tertiary_bg" />
+        android:layout_height="match_parent"
+        android:layout_weight="1">
 
-    <TextView
-        style="@style/text.form_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/about_this_item" />
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/detailed_info"
-        style="@style/text.p"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/placeholder_item_xl_description" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp">
 
-    <TextView
-        android:id="@+id/detailed_price"
-        style="@style/text.form_label"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/placeholder_item_price"
-        android:textColor="@color/info_text" />
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/detailed_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/rounded_image"
+                    app:srcCompat="@drawable/card_image_placeholder" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/tertiary_bg" />
+
+            <TextView
+                style="@style/text.form_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/about_this_item" />
+
+            <TextView
+                android:id="@+id/detailed_info"
+                style="@style/text.p"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/placeholder_item_xl_description" />
+
+            <TextView
+                android:id="@+id/detailed_price"
+                style="@style/text.form_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/placeholder_item_price"
+                android:textColor="@color/info_text" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </ScrollView>
+
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
