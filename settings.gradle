@@ -3,14 +3,18 @@ pluginManagement {
         google()
         mavenCentral()
         gradlePluginPortal()
+        jcenter() // Add JCenter repository
     }
 }
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
         mavenCentral()
+        jcenter() // Add JCenter repository
     }
 }
+
 rootProject.name = "FinalProject"
 include ':app'
