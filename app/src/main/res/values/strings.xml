@@ -1,7 +1,5 @@
 <resources>
-    <string name="HS_data">About this item:\nSCALP SHIELD TECHNOLOGY: Use regularly for a continuous invisible shield of protection against dandruff, itch+ and dryness, renewing\n72 HOUR PROTECTION: powerful, long-lasting dandruff protection\nMulti-symptom relief offers proven protection from flakes, itch* and dryness (*flakes and itch associated with dandruff)\nNourishes to relieve dandruff symptoms while cleansing hair and scalp* (*with regular use)\nLight classic scent leaves hair smelling fresh and clean
-    </string>
-    <string name="data"></string>
+    <string name="placeholder_item_xl_description">SCALP SHIELD TECHNOLOGY: Use regularly for a continuous invisible shield of protection against dandruff, itch+ and dryness, renewing 72 HOUR PROTECTION: powerful, long-lasting dandruff protectionMulti-symptom relief offers proven protection from flakes, itch* and dryness (*flakes and itch associated with dandruff) Nourishes to relieve dandruff symptoms while cleansing hair and scalp* (*with regular use) Light classic scent leaves hair smelling fresh and clean</string>
     <string name="app_name">FinalProject</string>
     <string name="reg_redirect"><u>Already a member? Sign In</u></string>
     <string name="reg_sign_up">Sign Up</string>
@@ -29,4 +27,7 @@
     <string name="title_activity_list_view_m.xml">list_view_m.xml</string>
     <string name="search">Search</string>
     <string name="placeholder_item_price">25.7₪</string>
+    <string name="logo">logo</string>
+    <string name="select_quantity">Select Quantity</string>
+    <string name="about_this_item">About this item:</string>
 </resources>

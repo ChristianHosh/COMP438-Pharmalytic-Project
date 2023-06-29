@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/body_bg"
+    android:orientation="vertical"
+    android:paddingHorizontal="10dp"
+    android:paddingVertical="20dp"
+    tools:context=".DetailedActivity">
+
+    <TextView
+        android:id="@+id/detailed_title"
+        style="@style/text.h2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/placeholder_item_title" />
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/detailed_img"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center_horizontal"
+        app:shapeAppearanceOverlay="@style/rounded_image"
+        app:srcCompat="@drawable/card_image_placeholder" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/tertiary_bg" />
+
+    <TextView
+        style="@style/text.form_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/about_this_item" />
+
+    <TextView
+        android:id="@+id/detailed_info"
+        style="@style/text.p"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/placeholder_item_xl_description" />
+
+    <TextView
+        android:id="@+id/detailed_price"
+        style="@style/text.form_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/placeholder_item_price"
+        android:textColor="@color/info_text" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/text.form_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select_quantity" />
+
+        <NumberPicker
+            android:id="@+id/quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_marginStart="10dp"
+            android:outlineSpotShadowColor="@color/text_emphasis"
+            android:theme="@style/AppTheme.picker" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/addToCart"
+            style="@style/button.primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:drawableStart="@drawable/baseline_add_circle_outline_24"
+            android:drawablePadding="8dp"
+            android:text="@string/add_to_cart" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

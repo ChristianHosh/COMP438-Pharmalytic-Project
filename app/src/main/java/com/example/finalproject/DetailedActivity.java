@@ -2,69 +2,64 @@ package com.example.finalproject;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.widget.AppCompatButton;
+
 public class DetailedActivity extends Activity {
 
-    TextView detailed_title;
-    ImageView detailed_img;
-    TextView datailed_info;
+    TextView textView_itemTitle;
+    TextView textView_itemInfo;
+    TextView textView_itemPrice;
+    AppCompatButton button_addToCart;
+    ImageView imageView_itemImage;
 
-    TextView detailed_price;
-    Button addToCart;
-
-    NumberPicker quantity;
+    NumberPicker numberPicker_quantity;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.detailed_activity);
+        setContentView(R.layout.activity_detailed_view);
+
         getViews();
         setQuantity();
     }
+
     private void getViews() {
-        detailed_title = findViewById(R.id.detailed_title);
-        detailed_img = findViewById(R.id.detailed_img);
-        datailed_info = findViewById(R.id.datailed_info);
-        detailed_price = findViewById(R.id.detailed_price);
-        addToCart = findViewById(R.id.addToCart);
-        quantity = findViewById(R.id.quantity);
+        textView_itemTitle = findViewById(R.id.detailed_title);
+        imageView_itemImage = findViewById(R.id.detailed_img);
+        textView_itemInfo = findViewById(R.id.detailed_info);
+        textView_itemPrice = findViewById(R.id.detailed_price);
+        button_addToCart = findViewById(R.id.addToCart);
+        numberPicker_quantity = findViewById(R.id.quantity);
     }
 
-    private void setQuantity()
-    {
-        addToCart.setClickable(false);
-        quantity.setMinValue(0);
-        quantity.setMaxValue(60);
-        quantity.setValue(0);
-        quantity.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
-            @Override
-            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                int selectedQuantity = newVal-1;
-                if (newVal>0) {
-                    addToCart.setClickable(true);
-                    addToCart.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            btnAddToCart(selectedQuantity);
-                        }
-                    });
-                }
+    private void setQuantity() {
+        button_addToCart.setClickable(false);
+        numberPicker_quantity.setMinValue(0);
+        numberPicker_quantity.setMaxValue(50);
+        numberPicker_quantity.setValue(0);
+        numberPicker_quantity.setOnValueChangedListener((picker, oldVal, newVal) -> {
+            int selectedQuantity = newVal - 1;
+            if (newVal > 0) {
+                button_addToCart.setClickable(true);
+                button_addToCart.setOnClickListener(v -> btnAddToCart(selectedQuantity));
+            } else {
+                button_addToCart.setClickable(false);
             }
         });
 
     }
-       ///////////////////////////////////////////////////////////////////////////////////
+
+    ///////////////////////////////////////////////////////////////////////////////////
     private void btnAddToCart(int selectedQuantity) {
         if (selectedQuantity == 1) {
             Toast.makeText(getApplicationContext(), "Added to cart " + selectedQuantity + " item", Toast.LENGTH_SHORT).show();
-        } else if (selectedQuantity>1) {
+        } else if (selectedQuantity > 1) {
             Toast.makeText(getApplicationContext(), "Added to cart " + selectedQuantity + " items", Toast.LENGTH_SHORT).show();
         }
     }

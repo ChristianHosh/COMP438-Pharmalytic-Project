@@ -5,19 +5,19 @@
     android:background="@color/body_bg"
     android:orientation="vertical">
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingVertical="5dp"
+        android:background="@color/dash_title"
+        android:orientation="horizontal"
         android:paddingHorizontal="10dp"
-        android:background="@color/dashTitle"
-        android:orientation="horizontal">
+        android:paddingVertical="5dp">
 
         <ImageView
             android:layout_width="75dp"
-            android:layout_height="76dp"
+            android:layout_height="75dp"
             android:layout_gravity="center"
-            android:background="@drawable/logo01"
+            android:background="@drawable/app_logo"
             android:contentDescription="@string/logo" />
 
         <TextView
@@ -27,16 +27,15 @@
             android:layout_gravity="center"
             android:layout_marginStart="20dp"
             android:text="@string/app_title"
-            android:textAllCaps="true"
-          />
-    </LinearLayout>
+            android:textAllCaps="true" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingVertical="5dp"
+        android:orientation="horizontal"
         android:paddingHorizontal="10dp"
-        android:orientation="horizontal">
+        android:paddingVertical="5dp">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/dash_btn_search"
@@ -47,23 +46,22 @@
         <EditText
             android:id="@+id/dash_in_search_bar"
             style="@style/text.form_input"
-            android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
-            android:inputType="text"
-            android:textColorHint="@color/text_tertiary"
+            android:layout_weight="1"
             android:hint="@string/search"
-            android:importantForAutofill="no" />
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:textColorHint="@color/text_tertiary" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/dash_btn_menu"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:background="@drawable/baseline_menu_24"
-             />
+            android:background="@drawable/baseline_menu_24" />
 
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -73,12 +71,9 @@
         android:layout_gravity="center"
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="50dp"
-        android:scrollbars="vertical"
-
         android:listSelector="@drawable/secondary_bordered"
-        />
 
-
+        android:scrollbars="vertical" />
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>
