@@ -1,41 +1,42 @@
 package com.example.finalproject.models;
 
+import androidx.annotation.NonNull;
+
+import java.util.ArrayList;
+
 public class Product {
-    private final int id;
-    private final String title;
-    private final String description;
+    private final String id;
+    private final String name;
+    private final ArrayList<Item> items;
 
-    private final double price;
-    private final int quantity;
+    public boolean isExpanded;
+    public boolean isLoaded;
 
-    private String imagePath;
-    private int categoryId;
-
-    public Product(int id, String title, String description, double price, int quantity) {
+    public Product(String id, String name) {
         this.id = id;
-        this.title = title;
-        this.description = description;
-        this.price = price;
-        this.quantity = quantity;
+        this.name = name;
+
+        items = new ArrayList<>();
+        this.isExpanded = false;
+        this.isLoaded = false;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public String getDescription() {
-        return description;
+    public ArrayList<Item> getItems() {
+        return items;
     }
 
-    public double getPrice() {
-        return price;
+    @NonNull
+    @Override
+    public String toString() {
+        return this.name;
     }
 
-    public int getQuantity() {
-        return quantity;
-    }
 }

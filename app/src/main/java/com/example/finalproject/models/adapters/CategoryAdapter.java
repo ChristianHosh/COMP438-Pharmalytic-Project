@@ -1,4 +1,4 @@
-package com.example.finalproject.models;
+package com.example.finalproject.models.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,22 +9,21 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.LinearLayoutCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.finalproject.globals.CommonGlobal;
 import com.example.finalproject.R;
+import com.example.finalproject.globals.CommonGlobal;
+import com.example.finalproject.globals.DatabaseController;
+import com.example.finalproject.models.Product;
 
 import java.util.ArrayList;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder> {
 
-    private final ArrayList<Category> mList;
+    private final ArrayList<Product> mList;
     private final Context context;
-    private ArrayList<Product> productList = MockupData.getProductsList();
 
-
-    public CategoryAdapter(ArrayList<Category> mList, Context context) {
+    public CategoryAdapter(ArrayList<Product> mList, Context context) {
         this.mList = mList;
         this.context = context;
     }
@@ -38,7 +37,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
     @Override
     public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
-        Category category = mList.get(position);
+        Product category = mList.get(position);
 
         holder.mTextView.setText(category.getName());
 
@@ -47,20 +46,14 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
         if (isExpanded){
             holder.mTextView.setCompoundDrawablesWithIntrinsicBounds(0,0, CommonGlobal.UI.DROP_UP_ARROW,0);
+            DatabaseController.initItemsFromProduct(category, holder.nestedRecyclerView, context, holder.itemView.getContext());
         }else{
             holder.mTextView.setCompoundDrawablesWithIntrinsicBounds(0,0,CommonGlobal.UI.DROP_DOWN_ARROW,0);
         }
 
-        ProductNestedAdapter adapter = new ProductNestedAdapter(productList, context);
-        holder.nestedRecyclerView.setLayoutManager(new LinearLayoutManager(holder.itemView.getContext()));
-        holder.nestedRecyclerView.setHasFixedSize(true);
-        holder.nestedRecyclerView.setAdapter(adapter);
         holder.linearLayout.setOnClickListener(v -> {
-
             category.isExpanded = !category.isExpanded;
-            productList = category.getProducts();
             notifyItemChanged(holder.getAdapterPosition());
-
         });
 
     }

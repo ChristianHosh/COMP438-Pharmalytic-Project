@@ -1,32 +1,32 @@
-package com.example.finalproject.models;
+package com.example.finalproject.models.mockup;
 
 import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Category {
+public class MockCategory {
 
     private final int id;
     private final String name;
 
-    private final ArrayList<Product> products;
+    private final ArrayList<MockItem> mockItems;
 
     public boolean isExpanded;
 
-    public Category(int id, String name) {
+    public MockCategory(int id, String name) {
         this.id = id;
         this.name = name;
 
-        products = MockupData.getProductsList();
+        mockItems = MockupData.getItemArrayList();
         isExpanded = false;
     }
 
-    public Category(int id, String name, List<Product> products) {
+    public MockCategory(int id, String name, List<MockItem> mockItems) {
         this.id = id;
         this.name = name;
 
-        this.products = new ArrayList<>(products);
+        this.mockItems = new ArrayList<>(mockItems);
 
         isExpanded = false;
     }
@@ -39,8 +39,8 @@ public class Category {
         return name;
     }
 
-    public ArrayList<Product> getProducts() {
-        return products;
+    public ArrayList<MockItem> getProducts() {
+        return mockItems;
     }
 
     @NonNull

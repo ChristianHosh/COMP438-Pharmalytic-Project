@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.finalproject.globals.CommonGlobal;
-import com.example.finalproject.globals.DbKeys;
+import com.example.finalproject.globals.DatabaseController;
 import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.AggregateQuery;
 import com.google.firebase.firestore.AggregateQuerySnapshot;
@@ -135,13 +135,13 @@ public class RegisterActivity extends AppCompatActivity {
 
         Map<String, Object> user = new HashMap<>();
 
-        user.put(DbKeys.USER_FIELD_NAME, input_name);
-        user.put(DbKeys.USER_FIELD_PASSWORD, input_password);
-        user.put(DbKeys.USER_FIELD_EMAIL, input_email);
-        user.put(DbKeys.USER_FIELD_REG_DATE, new Timestamp(new Date()));
+        user.put(DatabaseController.USER_FIELD_NAME, input_name);
+        user.put(DatabaseController.USER_FIELD_PASSWORD, input_password);
+        user.put(DatabaseController.USER_FIELD_EMAIL, input_email);
+        user.put(DatabaseController.USER_FIELD_REG_DATE, new Timestamp(new Date()));
 
         // QUERIES TO FIND DOCUMENTS IN THE USERS COLLECTION WHERE THEY ALREADY HAVE THE SAME EMAIL
-        Query query = firestoreDB.collection(DbKeys.COL_USERS).whereEqualTo(DbKeys.USER_FIELD_EMAIL, input_email);
+        Query query = firestoreDB.collection(DatabaseController.USER_COLLECTION).whereEqualTo(DatabaseController.USER_FIELD_EMAIL, input_email);
 
         AggregateQuery aggregateQuery = query.count();
         aggregateQuery.get(AggregateSource.SERVER)
@@ -165,7 +165,7 @@ public class RegisterActivity extends AppCompatActivity {
                         }
 
                         // IN THE OTHER CASE WHERE THE EMAIL IS NOT IN USE THEN THE USER REGISTERS
-                        DocumentReference documentReference = firestoreDB.collection(DbKeys.COL_USERS).document();
+                        DocumentReference documentReference = firestoreDB.collection(DatabaseController.USER_COLLECTION).document();
                         documentReference.set(user)
                                 .addOnSuccessListener(success -> {
 

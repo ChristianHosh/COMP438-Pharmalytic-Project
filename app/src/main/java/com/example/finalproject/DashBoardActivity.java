@@ -8,8 +8,9 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.finalproject.models.CategoryAdapter;
-import com.example.finalproject.models.MockupData;
+import com.example.finalproject.globals.DatabaseController;
+import com.example.finalproject.models.adapters.CategoryAdapter;
+import com.example.finalproject.models.mockup.MockupData;
 
 
 public class DashBoardActivity extends AppCompatActivity {
@@ -28,16 +29,10 @@ public class DashBoardActivity extends AppCompatActivity {
         getViews();
 
         setUpCategoriesAdapter();
-
-
     }
 
     private void setUpCategoriesAdapter() {
-        recyclerView_categories.setLayoutManager(new LinearLayoutManager(this));
-
-        CategoryAdapter categoryAdapter = new CategoryAdapter(MockupData.getCategoriesList(), this);
-        recyclerView_categories.setAdapter(categoryAdapter);
-
+        DatabaseController.initProducts(recyclerView_categories, this);
     }
 
     private void getViews() {

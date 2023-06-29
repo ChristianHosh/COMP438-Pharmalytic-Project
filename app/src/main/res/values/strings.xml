@@ -1,6 +1,6 @@
 <resources>
     <string name="placeholder_item_xl_description">SCALP SHIELD TECHNOLOGY: Use regularly for a continuous invisible shield of protection against dandruff, itch+ and dryness, renewing 72 HOUR PROTECTION: powerful, long-lasting dandruff protectionMulti-symptom relief offers proven protection from flakes, itch* and dryness (*flakes and itch associated with dandruff) Nourishes to relieve dandruff symptoms while cleansing hair and scalp* (*with regular use) Light classic scent leaves hair smelling fresh and clean</string>
-    <string name="app_name">FinalProject</string>
+    <string name="app_name">Pharmalytic</string>
     <string name="reg_redirect"><u>Already a member? Sign In</u></string>
     <string name="reg_sign_up">Sign Up</string>
     <string name="reg_confirm_password">Confirm Password</string>

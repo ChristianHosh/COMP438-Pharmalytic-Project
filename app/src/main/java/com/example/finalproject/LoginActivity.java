@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.finalproject.globals.CommonGlobal;
-import com.example.finalproject.globals.DbKeys;
+import com.example.finalproject.globals.DatabaseController;
 import com.google.firebase.firestore.AggregateQuery;
 import com.google.firebase.firestore.AggregateQuerySnapshot;
 import com.google.firebase.firestore.AggregateSource;
@@ -127,9 +127,9 @@ public class LoginActivity extends AppCompatActivity {
     private void loginUser(String input_email, String input_password) {
         FirebaseFirestore firestoreDB = FirebaseFirestore.getInstance();
 
-        Query query = firestoreDB.collection(DbKeys.COL_USERS)
-                .whereEqualTo(DbKeys.USER_FIELD_EMAIL, input_email)
-                .whereEqualTo(DbKeys.USER_FIELD_PASSWORD, input_password);
+        Query query = firestoreDB.collection(DatabaseController.USER_COLLECTION)
+                .whereEqualTo(DatabaseController.USER_FIELD_EMAIL, input_email)
+                .whereEqualTo(DatabaseController.USER_FIELD_PASSWORD, input_password);
 
         AggregateQuery aggregateQuery = query.count();
         aggregateQuery.get(AggregateSource.SERVER)

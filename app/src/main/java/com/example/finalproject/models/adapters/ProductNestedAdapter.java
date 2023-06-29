@@ -1,6 +1,9 @@
-package com.example.finalproject.models;
+package com.example.finalproject.models.adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,18 +14,24 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.finalproject.DetailedActivity;
 import com.example.finalproject.R;
+import com.example.finalproject.models.Item;
 import com.google.android.material.imageview.ShapeableImageView;
+import com.google.gson.Gson;
 
+import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class ProductNestedAdapter extends RecyclerView.Adapter<ProductNestedAdapter.ProductViewHolder> {
 
-    private final ArrayList<Product> mList;
+    public static final String ITEM_KEY = "ITEM_JSON";
+    private final ArrayList<Item> mList;
     private final Context context;
 
-    public ProductNestedAdapter(ArrayList<Product> products, Context context) {
-        mList = MockupData.getProductsList();
+    public ProductNestedAdapter(ArrayList<Item> items, Context context) {
+        mList = items;
         this.context = context;
     }
 
@@ -35,15 +44,26 @@ public class ProductNestedAdapter extends RecyclerView.Adapter<ProductNestedAdap
 
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
-        Product product = mList.get(position);
+        Item item = mList.get(position);
 
-        holder.textView_title.setText(product.getTitle());
-        holder.textView_description.setText(product.getDescription());
+        holder.textView_title.setText(item.getName());
+        holder.textView_description.setText(item.getDescription());
 
-        String productPrice = product.getPrice() + "$";
+        String productPrice = item.getPrice() + "$";
         holder.textView_price.setText(productPrice);
 
-        holder.imageView_image.setImageResource(R.drawable.card_image_placeholder);
+
+        URL myUrl = null;
+        try {
+            myUrl = item.getImage_path().toURL();
+            InputStream inputStream = (InputStream)myUrl.getContent();
+            Drawable drawable = Drawable.createFromStream(inputStream, null);
+            holder.imageView_image.setImageDrawable(drawable);
+        } catch (Exception e) {
+            Log.d("URL ERROR", e.toString());
+            holder.imageView_image.setImageResource(R.drawable.unavailable_placeholder_image);
+        }
+
 
         holder.button_add.setOnClickListener(v -> {
             Toast.makeText(context, "ADDED ITEM", Toast.LENGTH_SHORT).show();
@@ -54,7 +74,9 @@ public class ProductNestedAdapter extends RecyclerView.Adapter<ProductNestedAdap
         holder.button_view.setOnClickListener(v -> {
             Toast.makeText(context, "VIEWING ITEM", Toast.LENGTH_SHORT).show();
 
-            //OPEN DETAILED VIEW OF ITEM
+            Intent intent = new Intent(context, DetailedActivity.class);
+            intent.putExtra(ITEM_KEY, new Gson().toJson(item));
+            context.startActivity(intent);
         });
 
     }
