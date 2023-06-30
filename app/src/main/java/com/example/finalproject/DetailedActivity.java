@@ -23,8 +23,6 @@ public class DetailedActivity extends Activity {
     private ImageView imageView_itemImage;
     private NumberPicker numberPicker_quantity;
 
-    private Item item;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +35,7 @@ public class DetailedActivity extends Activity {
             finish();
         }
 
-        item = new Gson().fromJson(itemJson, Item.class);
+        Item item = new Gson().fromJson(itemJson, Item.class);
 
         setQuantity();
 
