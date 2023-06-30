@@ -56,8 +56,8 @@ public class ProductNestedAdapter extends RecyclerView.Adapter<ProductNestedAdap
         Glide
                 .with(context)
                 .load(url)
-                .centerCrop()
                 .placeholder(R.drawable.loading_spinner)
+                .error(R.drawable.unavailable_placeholder_image)
                 .into(holder.imageView_image);
 
         holder.button_add.setOnClickListener(v -> {

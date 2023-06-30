@@ -31,7 +31,7 @@ public class DetailedActivity extends Activity {
         getViews();
         Bundle bundle = getIntent().getExtras();
         String itemJson = bundle.getString(ProductNestedAdapter.ITEM_KEY, null);
-        if (itemJson == null){
+        if (itemJson == null) {
             finish();
         }
 
@@ -45,12 +45,13 @@ public class DetailedActivity extends Activity {
         String productPrice = item.getPrice() + "$";
         textView_itemPrice.setText(productPrice);
 
-        Glide
-                .with(this)
+
+        Glide.with(this)
                 .load(item.getImage_path().toString())
-                .centerCrop()
                 .placeholder(R.drawable.loading_spinner)
-                .into(imageView_itemImage);    }
+                .error(R.drawable.unavailable_placeholder_image)
+                .into(imageView_itemImage);
+    }
 
     private void getViews() {
         textView_itemTitle = findViewById(R.id.detailed_title);
