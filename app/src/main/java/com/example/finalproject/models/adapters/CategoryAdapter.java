@@ -47,6 +47,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         if (isExpanded){
             holder.mTextView.setCompoundDrawablesWithIntrinsicBounds(0,0, CommonGlobal.UI.DROP_UP_ARROW,0);
             DatabaseController.initItemsFromProduct(category, holder.nestedRecyclerView, context, holder.itemView.getContext());
+
         }else{
             holder.mTextView.setCompoundDrawablesWithIntrinsicBounds(0,0,CommonGlobal.UI.DROP_DOWN_ARROW,0);
         }
@@ -55,6 +56,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
             category.isExpanded = !category.isExpanded;
             notifyItemChanged(holder.getAdapterPosition());
         });
+
+
 
     }
 

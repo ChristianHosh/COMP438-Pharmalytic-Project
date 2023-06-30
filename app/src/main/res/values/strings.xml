@@ -30,4 +30,11 @@
     <string name="logo">logo</string>
     <string name="select_quantity">Select Quantity</string>
     <string name="about_this_item">About this item:</string>
+    <string name="category">Category</string>
+    <string name="description">Description</string>
+    <string name="xl_description">xl description</string>
+    <string name="price">Price</string>
+    <string name="quantity">Quantity</string>
+    <string name="image_path">Image Path</string>
+    <string name="add_item">Add Item</string>
 </resources>

@@ -18,7 +18,6 @@ public class Product {
 
         items = new ArrayList<>();
         this.isExpanded = false;
-        this.isLoaded = false;
     }
 
     public String getId() {

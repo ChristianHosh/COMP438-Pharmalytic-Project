@@ -2,8 +2,6 @@ package com.example.finalproject.models.adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,8 +18,6 @@ import com.example.finalproject.models.Item;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.gson.Gson;
 
-import java.io.InputStream;
-import java.net.URL;
 import java.util.ArrayList;
 
 public class ProductNestedAdapter extends RecyclerView.Adapter<ProductNestedAdapter.ProductViewHolder> {
@@ -52,18 +48,7 @@ public class ProductNestedAdapter extends RecyclerView.Adapter<ProductNestedAdap
         String productPrice = item.getPrice() + "$";
         holder.textView_price.setText(productPrice);
 
-
-        URL myUrl = null;
-        try {
-            myUrl = item.getImage_path().toURL();
-            InputStream inputStream = (InputStream)myUrl.getContent();
-            Drawable drawable = Drawable.createFromStream(inputStream, null);
-            holder.imageView_image.setImageDrawable(drawable);
-        } catch (Exception e) {
-            Log.d("URL ERROR", e.toString());
-            holder.imageView_image.setImageResource(R.drawable.unavailable_placeholder_image);
-        }
-
+        holder.imageView_image.setImageResource(R.drawable.unavailable_placeholder_image);
 
         holder.button_add.setOnClickListener(v -> {
             Toast.makeText(context, "ADDED ITEM", Toast.LENGTH_SHORT).show();

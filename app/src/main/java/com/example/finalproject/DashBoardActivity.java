@@ -1,16 +1,14 @@
 package com.example.finalproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finalproject.globals.DatabaseController;
-import com.example.finalproject.models.adapters.CategoryAdapter;
-import com.example.finalproject.models.mockup.MockupData;
 
 
 public class DashBoardActivity extends AppCompatActivity {
@@ -29,6 +27,11 @@ public class DashBoardActivity extends AppCompatActivity {
         getViews();
 
         setUpCategoriesAdapter();
+
+        button_menu.setOnClickListener(e -> {
+            Intent intent = new Intent(this, AdminActivity.class);
+            startActivity(intent);
+        });
     }
 
     private void setUpCategoriesAdapter() {

@@ -17,7 +17,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Objects;
 
 public class DatabaseController {
     private static final String TAG = "DB_CONTROL";
@@ -84,7 +83,7 @@ public class DatabaseController {
         ArrayList<Item> itemArrayList = new ArrayList<>();
 
         if (product.isLoaded) {
-            Log.d(TAG, "ITEMS ALREADY LOADED!");
+            Log.d(TAG, "ITEMS ALREADY LOADED FOR " + product);
             itemArrayList = product.getItems();
             if (!itemArrayList.isEmpty()) {
                 ProductNestedAdapter nestedAdapter = new ProductNestedAdapter(itemArrayList, context);
@@ -123,6 +122,8 @@ public class DatabaseController {
                             Item newItem = new Item(id, name, description, xlDescription, price.floatValue(), image_path);
 
                             finalItemArrayList.add(newItem);
+                            product.getItems().clear();
+                            product.getItems().addAll(finalItemArrayList);
                         }
 
                         ProductNestedAdapter nestedAdapter = new ProductNestedAdapter(finalItemArrayList, context);
