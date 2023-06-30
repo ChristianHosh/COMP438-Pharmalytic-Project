@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.widget.AppCompatButton;
 
+import com.bumptech.glide.Glide;
 import com.example.finalproject.models.Item;
 import com.example.finalproject.models.adapters.ProductNestedAdapter;
 import com.google.gson.Gson;
@@ -46,8 +47,12 @@ public class DetailedActivity extends Activity {
         String productPrice = item.getPrice() + "$";
         textView_itemPrice.setText(productPrice);
 
-        imageView_itemImage.setImageResource(R.drawable.unavailable_placeholder_image);
-    }
+        Glide
+                .with(this)
+                .load(item.getImage_path().toString())
+                .centerCrop()
+                .placeholder(R.drawable.loading_spinner)
+                .into(imageView_itemImage);    }
 
     private void getViews() {
         textView_itemTitle = findViewById(R.id.detailed_title);

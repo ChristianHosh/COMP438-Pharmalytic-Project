@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.finalproject.DetailedActivity;
 import com.example.finalproject.R;
 import com.example.finalproject.models.Item;
@@ -49,6 +50,15 @@ public class ProductNestedAdapter extends RecyclerView.Adapter<ProductNestedAdap
         holder.textView_price.setText(productPrice);
 
         holder.imageView_image.setImageResource(R.drawable.unavailable_placeholder_image);
+
+        String url = item.getImage_path().toString();
+
+        Glide
+                .with(context)
+                .load(url)
+                .centerCrop()
+                .placeholder(R.drawable.loading_spinner)
+                .into(holder.imageView_image);
 
         holder.button_add.setOnClickListener(v -> {
             Toast.makeText(context, "ADDED ITEM", Toast.LENGTH_SHORT).show();
