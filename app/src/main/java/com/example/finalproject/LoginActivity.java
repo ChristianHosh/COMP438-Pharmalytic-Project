@@ -9,12 +9,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.finalproject.globals.CommonGlobal;
-import com.example.finalproject.globals.DatabaseController;
-import com.google.firebase.firestore.AggregateQuery;
-import com.google.firebase.firestore.AggregateQuerySnapshot;
-import com.google.firebase.firestore.AggregateSource;
+import com.example.finalproject.controllers.ProductController;
+import com.example.finalproject.controllers.SessionController;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
 
 import java.util.Arrays;
 
@@ -127,32 +125,33 @@ public class LoginActivity extends AppCompatActivity {
     private void loginUser(String input_email, String input_password) {
         FirebaseFirestore firestoreDB = FirebaseFirestore.getInstance();
 
-        Query query = firestoreDB.collection(DatabaseController.USER_COLLECTION)
-                .whereEqualTo(DatabaseController.USER_FIELD_EMAIL, input_email)
-                .whereEqualTo(DatabaseController.USER_FIELD_PASSWORD, input_password);
-
-        AggregateQuery aggregateQuery = query.count();
-        aggregateQuery.get(AggregateSource.SERVER)
+        firestoreDB
+                .collection(ProductController.USER_COLLECTION)
+                .whereEqualTo(ProductController.USER_FIELD_EMAIL, input_email)
+                .whereEqualTo(ProductController.USER_FIELD_PASSWORD, input_password)
+                .get()
                 .addOnCompleteListener(task -> {
-                    // GETS THE QUERY RESULT
-                    AggregateQuerySnapshot snapshot = task.getResult();
+                    if (task.isSuccessful()) {
+                        try {
+                            DocumentSnapshot document = task.getResult().getDocuments().get(0);
 
-                    // IF THERE IS NOT ONLY 1 DOCUMENT WITH THIS EMAIL AND PASSWORD
-                    // THEN IT WILL NOT THE USER GO TO THE HOME SCREEN
-                    long count = snapshot.getCount();
-                    if (count != 1) {
-                        // SHOW USER THAT EMAIL OR PASSWORD ARE INCORRECT
-                        editTextEmailInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, CommonGlobal.UI.BADGE_DANGER, 0);
-                        textViewEmailError.setText(CommonGlobal.STRING.INVALID_LOGIN);
+                            SessionController.setInstance(document.getId());
+                            redirectToHome();
 
-                        editTextPassInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, CommonGlobal.UI.BADGE_DANGER, 0);
-                        textViewPassError.setText(CommonGlobal.STRING.INVALID_LOGIN);
-                        // DOES NOT CONTINUE TO HOME SCREEN
-                        return;
+                            // IF IT RETURNS AN EMPTY ARRAY THEN THERE WERE NO DOCUMENTS
+                            // WHICH MEANS THERE IS NOT USER WITH THAT LOGIN INFO
+                        }catch (IndexOutOfBoundsException e){
+                            // SHOW USER THAT EMAIL OR PASSWORD ARE INCORRECT
+                            editTextEmailInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, CommonGlobal.UI.BADGE_DANGER, 0);
+                            textViewEmailError.setText(CommonGlobal.STRING.INVALID_LOGIN);
+
+                            editTextPassInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, CommonGlobal.UI.BADGE_DANGER, 0);
+                            textViewPassError.setText(CommonGlobal.STRING.INVALID_LOGIN);
+                        }
                     }
 
-                    redirectToHome();
                 });
+
 
     }
 }

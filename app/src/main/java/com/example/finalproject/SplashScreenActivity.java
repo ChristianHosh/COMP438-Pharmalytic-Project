@@ -17,8 +17,10 @@ public class SplashScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_screen);
+
         Animation text = AnimationUtils.loadAnimation(this, R.anim.text_animation);
         Animation logo = AnimationUtils.loadAnimation(this, R.anim.logo_animation);
+
         TextView txtTitle = findViewById(R.id.splash_title);
         ImageView imgLogo = findViewById(R.id.splash_logo);
 

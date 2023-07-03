@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.finalproject.globals.DatabaseController;
+import com.example.finalproject.controllers.ProductController;
 
 
 public class DashBoardActivity extends AppCompatActivity {
@@ -35,7 +35,7 @@ public class DashBoardActivity extends AppCompatActivity {
     }
 
     private void setUpCategoriesAdapter() {
-        DatabaseController.initProducts(recyclerView_categories, this);
+        ProductController.initializeAllProducts(recyclerView_categories, this);
     }
 
     private void getViews() {

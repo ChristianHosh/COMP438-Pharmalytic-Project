@@ -10,7 +10,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
-import com.example.finalproject.globals.DatabaseController;
+import com.example.finalproject.controllers.ProductController;
 import com.example.finalproject.models.Product;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -39,7 +39,7 @@ public class AdminActivity extends AppCompatActivity {
 
         findViews();
 
-        ArrayList<Product> products = new ArrayList<>(DatabaseController.products.values());
+        ArrayList<Product> products = new ArrayList<>(ProductController.products.values());
 
         ArrayAdapter<Product> arrayAdapter = new ArrayAdapter<>(this, R.layout.spinner_item, products);
         spinner_category.setAdapter(arrayAdapter);
@@ -62,21 +62,21 @@ public class AdminActivity extends AppCompatActivity {
             String image_path = editText_imagePath.getText().toString();
 
             Map<String, Object> newItemDocument = new HashMap<>();
-            newItemDocument.put(DatabaseController.ITEM_FIELD_NAME, name);
-            newItemDocument.put(DatabaseController.ITEM_FIELD_DESC, description);
-            newItemDocument.put(DatabaseController.ITEM_FIELD_XL_DESC, xlDescription);
-            newItemDocument.put(DatabaseController.ITEM_FIELD_PRICE, price);
-            newItemDocument.put(DatabaseController.ITEM_FIELD_QUANTITY, quantity);
-            newItemDocument.put(DatabaseController.ITEM_FIELD_IMAGE_PATH, image_path);
+            newItemDocument.put(ProductController.ITEM_FIELD_NAME, name);
+            newItemDocument.put(ProductController.ITEM_FIELD_DESC, description);
+            newItemDocument.put(ProductController.ITEM_FIELD_XL_DESC, xlDescription);
+            newItemDocument.put(ProductController.ITEM_FIELD_PRICE, price);
+            newItemDocument.put(ProductController.ITEM_FIELD_QUANTITY, quantity);
+            newItemDocument.put(ProductController.ITEM_FIELD_IMAGE_PATH, image_path);
 
             String product_id = category.getId();
 
             FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
             firestore
-                    .collection(DatabaseController.PROD_COLLECTION)
+                    .collection(ProductController.PROD_COLLECTION)
                     .document(product_id)
-                    .collection(DatabaseController.PROD_COLLECTION_ITEMS)
+                    .collection(ProductController.PROD_COLLECTION_ITEMS)
                     .document()
                     .set(newItemDocument)
                     .addOnCompleteListener(task -> {

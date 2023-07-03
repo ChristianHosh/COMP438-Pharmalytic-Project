@@ -1,4 +1,4 @@
-package com.example.finalproject.globals;
+package com.example.finalproject.controllers;
 
 import android.content.Context;
 import android.util.Log;
@@ -18,7 +18,7 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class DatabaseController {
+public class ProductController {
     private static final String TAG = "DB_CONTROL";
 
     //    USER FIELD KEYS
@@ -28,8 +28,7 @@ public class DatabaseController {
     public static final String USER_FIELD_PASSWORD = "password";
     public static final String USER_FIELD_NAME = "name";
     public static final String USER_FIELD_REG_DATE = "reg_date";
-    public static final String USER_COLLECTION_CART = "cart";
-    public static final String USER_COLLECTION_CART_FIELD_ITEM_ID = "item_id";
+
 
 
     //    PRODUCT FIELD KEYS
@@ -49,7 +48,7 @@ public class DatabaseController {
 
     public static HashMap<String, Product> products = new HashMap<>();
 
-    public static void initProducts(RecyclerView recyclerView, Context context) {
+    public static void initializeAllProducts(RecyclerView recyclerView, Context context) {
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
         ArrayList<Product> productArrayList = new ArrayList<>();
@@ -77,7 +76,7 @@ public class DatabaseController {
                 });
     }
 
-    public static void initItemsFromProduct(Product product, RecyclerView recyclerView, Context context, Context nestedContext) {
+    public static void initializeAllItemsFromProduct(Product product, RecyclerView recyclerView, Context context, Context nestedContext) {
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
         ArrayList<Item> itemArrayList = new ArrayList<>();
@@ -137,4 +136,10 @@ public class DatabaseController {
                 });
 
     }
+
+
+
+//    public static void
+
+
 }

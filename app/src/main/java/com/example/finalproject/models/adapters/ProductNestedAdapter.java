@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatButton;
@@ -15,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.finalproject.DetailedActivity;
 import com.example.finalproject.R;
+import com.example.finalproject.controllers.CartController;
+import com.example.finalproject.controllers.SessionController;
 import com.example.finalproject.models.Item;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.gson.Gson;
@@ -60,15 +61,12 @@ public class ProductNestedAdapter extends RecyclerView.Adapter<ProductNestedAdap
                 .error(R.drawable.unavailable_placeholder_image)
                 .into(holder.imageView_image);
 
-        holder.button_add.setOnClickListener(v -> {
-            Toast.makeText(context, "ADDED ITEM", Toast.LENGTH_SHORT).show();
+        //  ADD ITEM TO CUSTOMER CART
+        holder.button_add.setOnClickListener(v -> CartController
+                .addItemToCart(SessionController.getInstance(), item, context));
 
-            //ADD ITEM TO CUSTOMER CART
-        });
-
+        //  VIEW DETAILED ITEM VIEW
         holder.button_view.setOnClickListener(v -> {
-            Toast.makeText(context, "VIEWING ITEM", Toast.LENGTH_SHORT).show();
-
             Intent intent = new Intent(context, DetailedActivity.class);
             intent.putExtra(ITEM_KEY, new Gson().toJson(item));
             context.startActivity(intent);
@@ -88,6 +86,7 @@ public class ProductNestedAdapter extends RecyclerView.Adapter<ProductNestedAdap
         private final ShapeableImageView imageView_image;
         private final AppCompatButton button_view;
         private final AppCompatButton button_add;
+
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
 

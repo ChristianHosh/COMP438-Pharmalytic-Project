@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finalproject.R;
 import com.example.finalproject.globals.CommonGlobal;
-import com.example.finalproject.globals.DatabaseController;
+import com.example.finalproject.controllers.ProductController;
 import com.example.finalproject.models.Product;
 
 import java.util.ArrayList;
@@ -46,7 +46,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
         if (isExpanded){
             holder.mTextView.setCompoundDrawablesWithIntrinsicBounds(0,0, CommonGlobal.UI.DROP_UP_ARROW,0);
-            DatabaseController.initItemsFromProduct(category, holder.nestedRecyclerView, context, holder.itemView.getContext());
+            ProductController.initializeAllItemsFromProduct(category, holder.nestedRecyclerView, context, holder.itemView.getContext());
 
         }else{
             holder.mTextView.setCompoundDrawablesWithIntrinsicBounds(0,0,CommonGlobal.UI.DROP_DOWN_ARROW,0);
