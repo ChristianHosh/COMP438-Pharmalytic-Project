@@ -10,6 +10,7 @@
     app:cardElevation="0dp">
 
     <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/card_item_parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/tertiary_rounded_bordered"
@@ -33,6 +34,7 @@
             app:shapeAppearanceOverlay="@style/rounded_image" />
 
         <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/card_item_data"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_horizontal"
@@ -70,7 +72,7 @@
                 android:textColor="@color/info_text" />
 
             <androidx.appcompat.widget.LinearLayoutCompat
-                android:id="@+id/button_layout"
+                android:id="@+id/card_item_button_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 

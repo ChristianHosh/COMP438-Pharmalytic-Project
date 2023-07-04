@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finalproject.models.Item;
 import com.example.finalproject.models.Product;
-import com.example.finalproject.models.adapters.CategoryAdapter;
-import com.example.finalproject.models.adapters.ProductNestedAdapter;
+import com.example.finalproject.models.adapters.ProductAdapter;
+import com.example.finalproject.models.adapters.ItemAdapter;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
@@ -65,10 +65,10 @@ public class ProductController {
                             products.put(id, newProduct);
                         }
 
-                        CategoryAdapter categoryAdapter = new CategoryAdapter(productArrayList, context);
+                        ProductAdapter productAdapter = new ProductAdapter(productArrayList, context);
 
                         recyclerView.setLayoutManager(new LinearLayoutManager(context));
-                        recyclerView.setAdapter(categoryAdapter);
+                        recyclerView.setAdapter(productAdapter);
 
                     } else {
                         Log.d(TAG, "Error getting documents: ", task.getException());
@@ -85,7 +85,7 @@ public class ProductController {
             Log.d(TAG, "ITEMS ALREADY LOADED FOR " + product);
             itemArrayList = product.getItems();
             if (!itemArrayList.isEmpty()) {
-                ProductNestedAdapter nestedAdapter = new ProductNestedAdapter(itemArrayList, context);
+                ItemAdapter nestedAdapter = new ItemAdapter(itemArrayList, context);
                 recyclerView.setLayoutManager(new LinearLayoutManager(nestedContext));
                 recyclerView.setHasFixedSize(true);
                 recyclerView.setAdapter(nestedAdapter);
@@ -125,7 +125,7 @@ public class ProductController {
                             product.getItems().addAll(finalItemArrayList);
                         }
 
-                        ProductNestedAdapter nestedAdapter = new ProductNestedAdapter(finalItemArrayList, context);
+                        ItemAdapter nestedAdapter = new ItemAdapter(finalItemArrayList, context);
                         recyclerView.setLayoutManager(new LinearLayoutManager(nestedContext));
                         recyclerView.setHasFixedSize(true);
                         recyclerView.setAdapter(nestedAdapter);
@@ -137,6 +137,20 @@ public class ProductController {
 
     }
 
+    public static ArrayList<Item> getFilteredList(String queryString) {
+        ArrayList<Item> itemArrayList = new ArrayList<>();
+
+        for (Product product: products.values()){
+            for (Item item: product.getItems()){
+                if (item.getName().toLowerCase().contains(queryString.toLowerCase())
+                        || item.getDescription().toLowerCase().contains(queryString.toLowerCase())) {
+                    itemArrayList.add(item);
+                }
+            }
+        }
+
+        return itemArrayList;
+    }
 
 
 //    public static void

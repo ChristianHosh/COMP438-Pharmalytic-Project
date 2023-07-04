@@ -41,6 +41,7 @@
     <style name="text.h4">
         <item name="android:textColor">@color/text_emphasis</item>
         <item name="android:textSize">22sp</item>
+        <item name="android:lineSpacingExtra">-8sp</item>
     </style>
 
     <style name="text.subtitle">

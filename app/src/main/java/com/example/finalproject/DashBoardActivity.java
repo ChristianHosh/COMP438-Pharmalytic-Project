@@ -1,8 +1,8 @@
 package com.example.finalproject;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
@@ -10,6 +10,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finalproject.controllers.ProductController;
 import com.example.finalproject.globals.ActivityController;
+import com.example.finalproject.models.Item;
+
+import java.util.ArrayList;
 
 
 public class DashBoardActivity extends AppCompatActivity {
@@ -29,16 +32,35 @@ public class DashBoardActivity extends AppCompatActivity {
 
         setUpCategoriesAdapter();
 
-        button_menu.setOnClickListener(e -> {
-            Intent intent = new Intent(this, AdminActivity.class);
-            startActivity(intent);
-        });
+        button_menu.setOnClickListener(e -> openMenu());
+        button_search.setOnClickListener(e -> openSearchPopup());
 
 
     }
 
+    private void openMenu() {
+//        OPEN MENU
+    }
+
+    private void openSearchPopup() {
+        String queryString = editText_search.getText().toString().toLowerCase().trim();
+
+        ArrayList<Item> filteredList = ProductController.getFilteredList(queryString);
+
+        if (filteredList.isEmpty()){
+            Toast.makeText(this, "No Items Found", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        DialogSearchList listDialog = new DialogSearchList(this, filteredList);
+
+        // Show the dialog
+        listDialog.show();
+
+    }
+
     @Override
-    public void onBackPressed(){
+    public void onBackPressed() {
         ActivityController.showExitConfirmationPopup(this);
     }
 

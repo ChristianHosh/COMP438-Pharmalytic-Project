@@ -22,13 +22,14 @@ import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
-public class ProductNestedAdapter extends RecyclerView.Adapter<ProductNestedAdapter.ProductViewHolder> {
+public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ProductViewHolder> {
 
     public static final String ITEM_KEY = "ITEM_JSON";
     private final ArrayList<Item> mList;
+
     private final Context context;
 
-    public ProductNestedAdapter(ArrayList<Item> items, Context context) {
+    public ItemAdapter(ArrayList<Item> items, Context context) {
         mList = items;
         this.context = context;
     }

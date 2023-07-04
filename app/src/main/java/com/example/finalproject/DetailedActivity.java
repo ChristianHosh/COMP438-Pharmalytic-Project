@@ -1,6 +1,7 @@
 package com.example.finalproject;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.NumberPicker;
@@ -11,7 +12,7 @@ import androidx.appcompat.widget.AppCompatButton;
 
 import com.bumptech.glide.Glide;
 import com.example.finalproject.models.Item;
-import com.example.finalproject.models.adapters.ProductNestedAdapter;
+import com.example.finalproject.models.adapters.ItemAdapter;
 import com.google.gson.Gson;
 
 public class DetailedActivity extends Activity {
@@ -30,7 +31,7 @@ public class DetailedActivity extends Activity {
 
         getViews();
         Bundle bundle = getIntent().getExtras();
-        String itemJson = bundle.getString(ProductNestedAdapter.ITEM_KEY, null);
+        String itemJson = bundle.getString(ItemAdapter.ITEM_KEY, null);
         if (itemJson == null) {
             finish();
         }
@@ -46,7 +47,7 @@ public class DetailedActivity extends Activity {
         textView_itemPrice.setText(productPrice);
 
 
-        Glide.with(this)
+        Glide.with((Context) this)
                 .load(item.getImage_path().toString())
                 .placeholder(R.drawable.loading_spinner)
                 .error(R.drawable.unavailable_placeholder_image)

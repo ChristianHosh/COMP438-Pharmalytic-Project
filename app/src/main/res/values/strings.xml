@@ -37,4 +37,5 @@
     <string name="quantity">Quantity</string>
     <string name="image_path">Image Path</string>
     <string name="add_item">Add Item</string>
+    <string name="search_result">Search Result</string>
 </resources>
