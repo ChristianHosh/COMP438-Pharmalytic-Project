@@ -10,6 +10,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import com.example.finalproject.globals.ActivityController;
 import com.example.finalproject.globals.CommonGlobal;
 import com.example.finalproject.controllers.ProductController;
 import com.google.firebase.Timestamp;
@@ -48,8 +49,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        showPopup();
-
+        ActivityController.showExitConfirmationPopup(this);
     }
 
     private void setMethods() {
@@ -213,8 +213,4 @@ public class RegisterActivity extends AppCompatActivity {
         textViewConfPassError = findViewById(R.id.reg_error_msg_confirm_password);
     }
 
-    private void showPopup() {
-        // Inflate the layout for the custom popup
-
-    }
 }

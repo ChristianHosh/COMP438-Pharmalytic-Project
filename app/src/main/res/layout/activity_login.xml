@@ -105,22 +105,9 @@
             android:layout_marginTop="20dp"
             android:paddingHorizontal="50dp"
             android:text="@string/login"
-            android:textSize="20sp"
-            />
+            android:textSize="20sp" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
-
-
-    <TextView
-        android:id="@+id/log_text_forget_pass_redirect"
-        style="@style/text.subtitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-
-
-        android:text="@string/forgot_password" />
 
     <TextView
         android:id="@+id/log_text_register_redirect"

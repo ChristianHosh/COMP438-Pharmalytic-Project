@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import com.example.finalproject.globals.ActivityController;
 import com.example.finalproject.globals.CommonGlobal;
 import com.example.finalproject.controllers.ProductController;
 import com.example.finalproject.controllers.SessionController;
@@ -23,15 +24,23 @@ public class LoginActivity extends AppCompatActivity {
     private TextView textViewEmailError;
     private TextView textViewPassError;
     private TextView textViewSignUpRedirect;
-    private TextView textViewForgetPasswordRedirect;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         getViews();
         setMethods();
+
+        checkSavedUser();
+    }
+
+    private void checkSavedUser() {
+        // CREATE A SHARED PREFERENCES THAT CHECKS IF A USER EMAIL AND PASSWORD WERE USED BEFORE
+        // IF EXISTS IT AUTO FILLS THE EMAIL AND PASSWORD INTO THEIR FIELDS
+
+
     }
 
     private void getViews() {
@@ -41,26 +50,20 @@ public class LoginActivity extends AppCompatActivity {
         textViewPassError = findViewById(R.id.log_error_msg_password);
 
         textViewSignUpRedirect = findViewById(R.id.log_text_register_redirect);
-        textViewForgetPasswordRedirect = findViewById(R.id.log_text_forget_pass_redirect);
 
         buttonLogin = findViewById(R.id.log_btn_login);
     }
 
     @Override
     public void onBackPressed() {
-        showPopup();
-
+        ActivityController.showExitConfirmationPopup(this);
     }
 
-    private void showPopup() {
 
-    }
 
     private void setMethods() {
         buttonLogin.setOnClickListener(e -> validateLogInFields());
-
         textViewSignUpRedirect.setOnClickListener(e -> redirectToSignUp());
-        textViewForgetPasswordRedirect.setOnClickListener(e -> redirectToForgetPassword());
     }
 
     private void redirectToHome() {
@@ -68,10 +71,6 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
 
         finish();
-    }
-
-    private void redirectToForgetPassword() {
-
     }
 
     private void redirectToSignUp() {
@@ -140,7 +139,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             // IF IT RETURNS AN EMPTY ARRAY THEN THERE WERE NO DOCUMENTS
                             // WHICH MEANS THERE IS NOT USER WITH THAT LOGIN INFO
-                        }catch (IndexOutOfBoundsException e){
+                        } catch (IndexOutOfBoundsException e) {
                             // SHOW USER THAT EMAIL OR PASSWORD ARE INCORRECT
                             editTextEmailInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, CommonGlobal.UI.BADGE_DANGER, 0);
                             textViewEmailError.setText(CommonGlobal.STRING.INVALID_LOGIN);

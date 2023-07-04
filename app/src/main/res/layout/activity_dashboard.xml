@@ -38,10 +38,10 @@
         android:paddingVertical="5dp">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/dash_btn_search"
+            android:id="@+id/dash_btn_menu"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:background="@drawable/baseline_search_24" />
+            android:background="@drawable/baseline_menu_24" />
 
         <EditText
             android:id="@+id/dash_in_search_bar"
@@ -56,10 +56,10 @@
             android:textColorHint="@color/text_tertiary" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/dash_btn_menu"
+            android:id="@+id/dash_btn_search"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:background="@drawable/baseline_menu_24" />
+            android:background="@drawable/baseline_search_24" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -69,7 +69,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginHorizontal="10dp"
         android:layout_marginTop="50dp"
         android:listSelector="@drawable/secondary_bordered"
 

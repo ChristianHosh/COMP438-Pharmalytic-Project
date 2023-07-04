@@ -9,6 +9,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finalproject.controllers.ProductController;
+import com.example.finalproject.globals.ActivityController;
 
 
 public class DashBoardActivity extends AppCompatActivity {
@@ -32,6 +33,13 @@ public class DashBoardActivity extends AppCompatActivity {
             Intent intent = new Intent(this, AdminActivity.class);
             startActivity(intent);
         });
+
+
+    }
+
+    @Override
+    public void onBackPressed(){
+        ActivityController.showExitConfirmationPopup(this);
     }
 
     private void setUpCategoriesAdapter() {

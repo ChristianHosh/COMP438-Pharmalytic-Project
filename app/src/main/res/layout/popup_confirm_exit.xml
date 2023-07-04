@@ -3,11 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginHorizontal="30dp"
+    android:layout_marginHorizontal="40dp"
     android:layout_marginVertical="220dp"
-    android:padding="20dp"
-    android:background="@color/tertiary_bg"
-    >
+    android:background="@drawable/tertiary_rounded_bordered"
+    android:padding="20dp">
 
     <TextView
         android:id="@+id/exit_title"
@@ -41,7 +40,7 @@
         android:layout_height="wrap_content"
 
         android:text="@string/no"
-        android:textSize="22sp"
+        android:textSize="26sp"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button_exit"
@@ -55,7 +54,7 @@
         android:layout_height="wrap_content"
 
         android:text="@string/yes"
-        android:textSize="22sp"
+        android:textSize="26sp"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
