@@ -54,7 +54,7 @@ public class AdminActivity extends AppCompatActivity {
             try {
                 price = Double.parseDouble(editText_price.getText().toString());
                 quantity = Integer.parseInt(editText_quantity.getText().toString());
-            } catch (NumberFormatException exception){
+            } catch (NumberFormatException exception) {
                 Toast.makeText(this, "Wrong Number Format", Toast.LENGTH_SHORT).show();
                 return;
             }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="false">
+        <layer-list>
+            <item>
+                <shape
+                    android:shape="oval">
+                    <solid android:color="@color/success_border"/>
+                </shape>
+            </item>
+            <item android:drawable="@drawable/baseline_add_24"/>
+        </layer-list>
+    </item>
+    <item android:state_pressed="true">
+        <layer-list>
+            <item>
+                <shape
+                    android:shape="oval">
+                    <solid android:color="@color/success"/>
+                </shape>
+            </item>
+            <item android:drawable="@drawable/baseline_add_24"/>
+        </layer-list>
+    </item>
+</selector>

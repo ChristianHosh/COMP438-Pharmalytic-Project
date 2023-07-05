@@ -22,7 +22,7 @@ import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
-public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ProductViewHolder> {
+public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder> {
 
     public static final String ITEM_KEY = "ITEM_JSON";
     private final ArrayList<Item> mList;
@@ -36,13 +36,13 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ProductViewHol
 
     @NonNull
     @Override
-    public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_item, parent, false);
-        return new ProductViewHolder(view);
+        return new ItemViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
         Item item = mList.get(position);
 
         holder.textView_title.setText(item.getName());
@@ -80,7 +80,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ProductViewHol
         return mList.size();
     }
 
-    public static class ProductViewHolder extends RecyclerView.ViewHolder {
+    public static class ItemViewHolder extends RecyclerView.ViewHolder {
         private final TextView textView_title;
         private final TextView textView_description;
         private final TextView textView_price;
@@ -88,7 +88,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ProductViewHol
         private final AppCompatButton button_view;
         private final AppCompatButton button_add;
 
-        public ProductViewHolder(@NonNull View itemView) {
+        public ItemViewHolder(@NonNull View itemView) {
             super(itemView);
 
             textView_title = itemView.findViewById(R.id.card_item_title);

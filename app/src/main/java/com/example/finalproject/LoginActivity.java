@@ -2,6 +2,7 @@ package com.example.finalproject;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -147,10 +148,10 @@ public class LoginActivity extends AppCompatActivity {
                             editTextPassInput.setCompoundDrawablesWithIntrinsicBounds(0, 0, CommonGlobal.UI.BADGE_DANGER, 0);
                             textViewPassError.setText(CommonGlobal.STRING.INVALID_LOGIN);
                         }
+                    }else {
+                        Log.d("LoginActivity", "Error Logging In => ", task.getException());
                     }
-
                 });
-
 
     }
 }

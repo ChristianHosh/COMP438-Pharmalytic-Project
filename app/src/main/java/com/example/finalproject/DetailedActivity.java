@@ -11,6 +11,8 @@ import android.widget.Toast;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.bumptech.glide.Glide;
+import com.example.finalproject.controllers.CartController;
+import com.example.finalproject.controllers.SessionController;
 import com.example.finalproject.models.Item;
 import com.example.finalproject.models.adapters.ItemAdapter;
 import com.google.gson.Gson;
@@ -23,6 +25,7 @@ public class DetailedActivity extends Activity {
     private AppCompatButton button_addToCart;
     private ImageView imageView_itemImage;
     private NumberPicker numberPicker_quantity;
+    private Item item;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +39,7 @@ public class DetailedActivity extends Activity {
             finish();
         }
 
-        Item item = new Gson().fromJson(itemJson, Item.class);
+        item = new Gson().fromJson(itemJson, Item.class);
 
         setQuantity();
 
@@ -66,13 +69,12 @@ public class DetailedActivity extends Activity {
     private void setQuantity() {
         button_addToCart.setClickable(false);
         numberPicker_quantity.setMinValue(1);
-        numberPicker_quantity.setMaxValue(50);
+        numberPicker_quantity.setMaxValue(25);
         numberPicker_quantity.setValue(1);
         numberPicker_quantity.setOnValueChangedListener((picker, oldVal, newVal) -> {
-            int selectedQuantity = newVal - 1;
             if (newVal > 0) {
                 button_addToCart.setClickable(true);
-                button_addToCart.setOnClickListener(v -> addToCart(selectedQuantity));
+                button_addToCart.setOnClickListener(v -> addToCart(newVal));
             } else {
                 button_addToCart.setClickable(false);
             }
@@ -84,8 +86,11 @@ public class DetailedActivity extends Activity {
     private void addToCart(int selectedQuantity) {
         if (selectedQuantity == 1) {
             Toast.makeText(getApplicationContext(), "Added to cart " + selectedQuantity + " item", Toast.LENGTH_SHORT).show();
+            CartController.addItemToCart(SessionController.getInstance(), item, this);
         } else if (selectedQuantity > 1) {
             Toast.makeText(getApplicationContext(), "Added to cart " + selectedQuantity + " items", Toast.LENGTH_SHORT).show();
+            CartController.addItemToCart(SessionController.getInstance(), item, selectedQuantity, this);
+
         }
     }
 }

@@ -5,13 +5,7 @@
     android:background="@color/body_bg"
     android:orientation="vertical">
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/dash_title"
-        android:orientation="horizontal"
-        android:paddingHorizontal="10dp"
-        android:paddingVertical="5dp">
+    <androidx.appcompat.widget.LinearLayoutCompat style="@style/header_layout">
 
         <ImageView
             android:layout_width="75dp"
@@ -34,6 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:gravity="center"
         android:paddingHorizontal="10dp"
         android:paddingVertical="5dp">
 

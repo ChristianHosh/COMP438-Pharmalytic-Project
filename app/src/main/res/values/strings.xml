@@ -38,4 +38,11 @@
     <string name="image_path">Image Path</string>
     <string name="add_item">Add Item</string>
     <string name="search_result">Search Result</string>
+    <string name="cart">Cart</string>
+    <string name="checkout">Checkout</string>
+    <string name="total">Total</string>
+    <string name="placeholder_total">$0.0</string>
+    <string name="placeholder_quantity">5</string>
+    <string name="add_quantity">Add Quantity</string>
+    <string name="remove_quantity">Remove Quantity</string>
 </resources>
