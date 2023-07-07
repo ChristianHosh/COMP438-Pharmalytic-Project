@@ -79,18 +79,19 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.CartIt
                     .document(SessionController.getInstance().getId())
                     .collection(CartController.USER_COLLECTION_CART)
                     .document(cartItem.getId())
-                    .update(CartController.USER_COLLECTION_CART_FIELD_QUANTITY, cartItem.getQuantity()
-                            , CartController.USER_COLLECTION_CART_FIELD_TOTAL_PRICE, cartItem.getPrice())
-                    .addOnCompleteListener(task -> {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(context, "Added one " + item.getName(), Toast.LENGTH_SHORT).show();
-                            notifyItemChanged(position);
-                        } else {
-                            Toast.makeText(context, "Couldn't Add " + item.getName(), Toast.LENGTH_SHORT).show();
-                            Log.d(TAG, "ERROR UPDATING QUANTITY => ", task.getException());
-                            cartItem.removeQuantity();
-                            notifyItemChanged(position);
-                        }
+                    .update(CartController.USER_COLLECTION_CART_FIELD_QUANTITY, cartItem.getQuantity(),
+                            CartController.USER_COLLECTION_CART_FIELD_TOTAL_PRICE, cartItem.getPrice())
+
+                    .addOnSuccessListener(result -> {
+                        Toast.makeText(context, "Added one " + item.getName(), Toast.LENGTH_SHORT).show();
+                        notifyItemChanged(position);
+
+                    })
+                    .addOnFailureListener(exception -> {
+                        Toast.makeText(context, "Couldn't Add " + item.getName(), Toast.LENGTH_SHORT).show();
+                        Log.d(TAG, "ERROR UPDATING QUANTITY => ", exception);
+                        cartItem.removeQuantity();
+                        notifyItemChanged(position);
                     });
 
             CartController.updateTotal(this.itemArrayList, textView_price);
@@ -98,7 +99,9 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.CartIt
         });
 
         //  REMOVE ITEM QUANTITY TO CART ITEM
-        holder.button_remove.setOnClickListener(v -> {
+        holder.button_remove.setOnClickListener(v ->
+
+        {
             // REMOVE 1 TO QUANTITY
             // IF QUANTITY BECOMES 0 REMOVE FROM CART AND FROM RECYCLER
             FirebaseFirestore firestore = FirebaseFirestore.getInstance();
@@ -114,17 +117,18 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.CartIt
                         .collection(CartController.USER_COLLECTION_CART)
                         .document(cartItem.getId())
                         .delete()
-                        .addOnCompleteListener(task -> {
-                            if (task.isSuccessful()) {
-                                Toast.makeText(context, "Removed " + item.getName() + " From Cart", Toast.LENGTH_SHORT).show();
-                                this.itemArrayList.remove(position);
-                                notifyItemRemoved(position);
-                            } else {
-                                Toast.makeText(context, "Couldn't Remove " + item.getName(), Toast.LENGTH_SHORT).show();
-                                Log.d(TAG, "ERROR DELETING DOCUMENT => ", task.getException());
-                                cartItem.addQuantity();
-                                notifyItemChanged(position);
-                            }
+
+                        .addOnSuccessListener(result -> {
+                            Toast.makeText(context, "Removed " + item.getName() + " From Cart", Toast.LENGTH_SHORT).show();
+                            this.itemArrayList.remove(position);
+                            notifyItemRemoved(position);
+
+                        })
+                        .addOnFailureListener(exception -> {
+                            Toast.makeText(context, "Couldn't Remove " + item.getName(), Toast.LENGTH_SHORT).show();
+                            Log.d(TAG, "ERROR DELETING DOCUMENT => ", exception);
+                            cartItem.addQuantity();
+                            notifyItemChanged(position);
                         });
 
 
@@ -135,18 +139,19 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.CartIt
                         .document(SessionController.getInstance().getId())
                         .collection(CartController.USER_COLLECTION_CART)
                         .document(cartItem.getId())
-                        .update(CartController.USER_COLLECTION_CART_FIELD_QUANTITY, cartItem.getQuantity()
-                                , CartController.USER_COLLECTION_CART_FIELD_TOTAL_PRICE, cartItem.getPrice())
-                        .addOnCompleteListener(task -> {
-                            if (task.isSuccessful()) {
-                                Toast.makeText(context, "Removed one " + item.getName(), Toast.LENGTH_SHORT).show();
-                                notifyItemChanged(position);
-                            } else {
-                                Toast.makeText(context, "Couldn't Remove " + item.getName(), Toast.LENGTH_SHORT).show();
-                                Log.d(TAG, "ERROR UPDATING QUANTITY => ", task.getException());
-                                cartItem.addQuantity();
-                                notifyItemChanged(position);
-                            }
+                        .update(CartController.USER_COLLECTION_CART_FIELD_QUANTITY, cartItem.getQuantity(),
+                                CartController.USER_COLLECTION_CART_FIELD_TOTAL_PRICE, cartItem.getPrice())
+
+                        .addOnSuccessListener(result -> {
+                            Toast.makeText(context, "Removed one " + item.getName(), Toast.LENGTH_SHORT).show();
+                            notifyItemChanged(position);
+
+                        })
+                        .addOnFailureListener(exception -> {
+                            Toast.makeText(context, "Couldn't Remove " + item.getName(), Toast.LENGTH_SHORT).show();
+                            Log.d(TAG, "ERROR UPDATING QUANTITY => ", exception);
+                            cartItem.addQuantity();
+                            notifyItemChanged(position);
                         });
             }
             CartController.updateTotal(this.itemArrayList, textView_price);
