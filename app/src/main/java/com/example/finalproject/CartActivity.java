@@ -27,7 +27,7 @@ public class CartActivity extends AppCompatActivity {
                 recyclerView_cartItems, textView_totalPrice, this);
 
         button_checkout.setOnClickListener(e -> {
-
+            // CHECKOUT ITEMS IN CART
         });
     }
 

@@ -26,8 +26,8 @@ public class CartController {
     // USER CART COLLECTION
     public static final String USER_COLLECTION_CART = "cart";
     public static final String USER_COLLECTION_CART_FIELD_ITEM_ID = "item_id";
-    private static final String USER_COLLECTION_CART_FIELD_QUANTITY = "quantity";
-    private static final String USER_COLLECTION_CART_FIELD_TOTAL_PRICE = "total";
+    public static final String USER_COLLECTION_CART_FIELD_QUANTITY = "quantity";
+    public static final String USER_COLLECTION_CART_FIELD_TOTAL_PRICE = "total";
 
 
     public static void addItemToCart(SessionController instance, Item item, Context context) {
@@ -81,6 +81,7 @@ public class CartController {
                     if (task.isSuccessful()) {
                         for (QueryDocumentSnapshot document : task.getResult()) {
 
+                            String id = document.getId();
                             String itemID = (String) document.getData().get(USER_COLLECTION_CART_FIELD_ITEM_ID);
                             Long itemQuantity = document.getLong(USER_COLLECTION_CART_FIELD_QUANTITY);
                             Double itemPrice = document.getDouble(USER_COLLECTION_CART_FIELD_TOTAL_PRICE);
@@ -93,13 +94,13 @@ public class CartController {
                                     assert itemQuantity != null;
                                     assert itemPrice != null;
 
-                                    CartItem cartItem = new CartItem(item, itemQuantity.intValue(), itemPrice.floatValue());
+                                    CartItem cartItem = new CartItem(item, id, itemQuantity.intValue(), itemPrice.floatValue());
                                     cartItems.add(cartItem);
                                 }
                             }
                         }
 
-                        CartItemAdapter adapter = new CartItemAdapter(cartItems, context);
+                        CartItemAdapter adapter = new CartItemAdapter(cartItems, context, textView_price);
 
                         recyclerView_cartItems.setLayoutManager(new LinearLayoutManager(context));
                         recyclerView_cartItems.setAdapter(adapter);
@@ -111,9 +112,16 @@ public class CartController {
                         String priceString = total + "$";
                         textView_price.setText(priceString);
                     }
-                })
-        ;
+                });
 
     }
 
+    public static void updateTotal(ArrayList<CartItem> cartItems, TextView textView_price) {
+        float total = 0;
+        for (CartItem cartItem : cartItems) {
+            total += cartItem.getPrice();
+        }
+        String priceString = total + "$";
+        textView_price.setText(priceString);
+    }
 }

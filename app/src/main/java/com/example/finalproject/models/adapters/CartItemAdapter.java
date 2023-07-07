@@ -1,10 +1,12 @@
 package com.example.finalproject.models.adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatButton;
@@ -12,19 +14,26 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.finalproject.R;
+import com.example.finalproject.controllers.CartController;
+import com.example.finalproject.controllers.ProductController;
+import com.example.finalproject.controllers.SessionController;
 import com.example.finalproject.models.CartItem;
 import com.example.finalproject.models.Item;
 import com.google.android.material.imageview.ShapeableImageView;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
 public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.CartItemViewHolder> {
+    private static final String TAG = "CartItemAdapter";
     private final ArrayList<CartItem> itemArrayList;
+    private final TextView textView_price;
     private final Context context;
 
-    public CartItemAdapter(ArrayList<CartItem> items, Context context) {
+    public CartItemAdapter(ArrayList<CartItem> items, Context context, TextView textView) {
         this.itemArrayList = items;
         this.context = context;
+        this.textView_price = textView;
     }
 
     @NonNull
@@ -59,12 +68,88 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.CartIt
 
         //  ADD ITEM QUANTITY TO CART ITEM
         holder.button_add.setOnClickListener(v -> {
+            // ADD 1 TO QUANTITY
+            cartItem.addQuantity();
+            Log.w(TAG, "ADDING TO ITEM");
+
+            FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+
+            firestore
+                    .collection(ProductController.USER_COLLECTION)
+                    .document(SessionController.getInstance().getId())
+                    .collection(CartController.USER_COLLECTION_CART)
+                    .document(cartItem.getId())
+                    .update(CartController.USER_COLLECTION_CART_FIELD_QUANTITY, cartItem.getQuantity()
+                            , CartController.USER_COLLECTION_CART_FIELD_TOTAL_PRICE, cartItem.getPrice())
+                    .addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(context, "Added one " + item.getName(), Toast.LENGTH_SHORT).show();
+                            notifyItemChanged(position);
+                        } else {
+                            Toast.makeText(context, "Couldn't Add " + item.getName(), Toast.LENGTH_SHORT).show();
+                            Log.d(TAG, "ERROR UPDATING QUANTITY => ", task.getException());
+                            cartItem.removeQuantity();
+                            notifyItemChanged(position);
+                        }
+                    });
+
+            CartController.updateTotal(this.itemArrayList, textView_price);
 
         });
 
         //  REMOVE ITEM QUANTITY TO CART ITEM
         holder.button_remove.setOnClickListener(v -> {
+            // REMOVE 1 TO QUANTITY
+            // IF QUANTITY BECOMES 0 REMOVE FROM CART AND FROM RECYCLER
+            FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
+            cartItem.removeQuantity();
+
+            Log.w(TAG, "REMOVING ITEM");
+            if (cartItem.getQuantity() <= 0) {
+                // REMOVE ITEM FROM CART
+                firestore
+                        .collection(ProductController.USER_COLLECTION)
+                        .document(SessionController.getInstance().getId())
+                        .collection(CartController.USER_COLLECTION_CART)
+                        .document(cartItem.getId())
+                        .delete()
+                        .addOnCompleteListener(task -> {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(context, "Removed " + item.getName() + " From Cart", Toast.LENGTH_SHORT).show();
+                                this.itemArrayList.remove(position);
+                                notifyItemRemoved(position);
+                            } else {
+                                Toast.makeText(context, "Couldn't Remove " + item.getName(), Toast.LENGTH_SHORT).show();
+                                Log.d(TAG, "ERROR DELETING DOCUMENT => ", task.getException());
+                                cartItem.addQuantity();
+                                notifyItemChanged(position);
+                            }
+                        });
+
+
+            } else {
+                // UPDATE ITEM QUANTITY
+                firestore
+                        .collection(ProductController.USER_COLLECTION)
+                        .document(SessionController.getInstance().getId())
+                        .collection(CartController.USER_COLLECTION_CART)
+                        .document(cartItem.getId())
+                        .update(CartController.USER_COLLECTION_CART_FIELD_QUANTITY, cartItem.getQuantity()
+                                , CartController.USER_COLLECTION_CART_FIELD_TOTAL_PRICE, cartItem.getPrice())
+                        .addOnCompleteListener(task -> {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(context, "Removed one " + item.getName(), Toast.LENGTH_SHORT).show();
+                                notifyItemChanged(position);
+                            } else {
+                                Toast.makeText(context, "Couldn't Remove " + item.getName(), Toast.LENGTH_SHORT).show();
+                                Log.d(TAG, "ERROR UPDATING QUANTITY => ", task.getException());
+                                cartItem.addQuantity();
+                                notifyItemChanged(position);
+                            }
+                        });
+            }
+            CartController.updateTotal(this.itemArrayList, textView_price);
         });
 
 
@@ -74,6 +159,7 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.CartIt
     public int getItemCount() {
         return itemArrayList.size();
     }
+
 
     public static class CartItemViewHolder extends RecyclerView.ViewHolder {
         private final TextView textView_title;
