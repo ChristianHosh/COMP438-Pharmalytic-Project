@@ -38,6 +38,7 @@
         android:layout_marginTop="20dp"
         android:drawableStart="@drawable/baseline_person_24"
         android:drawablePadding="8dp"
+        android:onClick="redirectToSettingActivity"
         android:text="@string/user"
         android:textSize="20sp" />
 
