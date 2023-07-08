@@ -52,20 +52,16 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void checkSavedUser() {
-        // Retrieve saved email and password from SharedPreferences
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         String email = sharedPreferences.getString(EMAIL, "");
         String password = sharedPreferences.getString(PASS, "");
         boolean savedFlag = sharedPreferences.getBoolean(FLAG, false);
 
-        // Set the saved email and password in the EditText fields
         editTextEmailInput.setText(email);
         editTextPassInput.setText(password);
 
-        // Set the checkbox state based on the saved flag
         checkBox.setChecked(savedFlag);
 
-        // Update the flag value
         flag = savedFlag;
     }
 
