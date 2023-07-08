@@ -23,4 +23,8 @@ public class SessionController {
     public static SessionController getInstance() {
         return instance;
     }
+
+    public static void endSession(){
+        instance = null;
+    }
 }
