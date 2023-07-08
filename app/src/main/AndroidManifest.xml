@@ -16,6 +16,9 @@
             android:name=".CheckoutShippingActivity"
             android:exported="false" />
         <activity
+            android:name=".Menu"
+            android:exported="false" />
+        <activity
             android:name=".CartActivity"
             android:exported="false" />
         <activity

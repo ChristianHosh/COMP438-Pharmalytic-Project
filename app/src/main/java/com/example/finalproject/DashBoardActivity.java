@@ -33,17 +33,13 @@ public class DashBoardActivity extends AppCompatActivity {
 
         setUpCategoriesAdapter();
 
-        button_menu.setOnClickListener(e -> openMenu());
+        button_menu.setOnClickListener(e -> RedirectToMenu());
         button_search.setOnClickListener(e -> openSearchPopup());
 
 
     }
 
-    private void openMenu() {
-//        OPEN MENU
-        Intent intent = new Intent(this, CartActivity.class);
-        startActivity(intent);
-    }
+
 
     private void openSearchPopup() {
         String queryString = editText_search.getText().toString().toLowerCase().trim();
@@ -78,5 +74,11 @@ public class DashBoardActivity extends AppCompatActivity {
         button_search = findViewById(R.id.dash_btn_search);
         button_menu = findViewById(R.id.dash_btn_menu);
         editText_search = findViewById(R.id.dash_in_search_bar);
+    }
+    private void RedirectToMenu() {
+        Intent intent = new Intent(this, Menu.class);
+        startActivity(intent);
+
+        finish();
     }
 }
