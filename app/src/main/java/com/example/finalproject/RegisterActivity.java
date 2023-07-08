@@ -1,6 +1,7 @@
 package com.example.finalproject;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
@@ -37,6 +38,8 @@ public class RegisterActivity extends AppCompatActivity {
     private TextView textViewEmailError;
     private TextView textViewPassError;
     private TextView textViewConfPassError;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
