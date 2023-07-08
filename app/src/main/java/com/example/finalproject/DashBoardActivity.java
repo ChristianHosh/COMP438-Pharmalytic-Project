@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finalproject.controllers.ProductController;
 import com.example.finalproject.globals.ActivityController;
+import com.example.finalproject.globals.CommonGlobal;
 import com.example.finalproject.models.Item;
 
 import java.util.ArrayList;
@@ -45,6 +46,7 @@ public class DashBoardActivity extends AppCompatActivity {
         String queryString = editText_search.getText().toString().toLowerCase().trim();
 
         ArrayList<Item> filteredList = ProductController.getFilteredList(queryString);
+        CommonGlobal.RECENT.setRecentItems(filteredList);
 
         if (filteredList.isEmpty()){
             Toast.makeText(this, "No Items Found", Toast.LENGTH_SHORT).show();
@@ -57,6 +59,9 @@ public class DashBoardActivity extends AppCompatActivity {
 
         // Show the dialog
         listDialog.show();
+
+
+        // SAVE RECENT ITEMS TO SHARED PREFERENCES
 
     }
 

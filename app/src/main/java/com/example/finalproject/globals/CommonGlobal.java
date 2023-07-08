@@ -1,6 +1,9 @@
 package com.example.finalproject.globals;
 
 import com.example.finalproject.R;
+import com.example.finalproject.models.Item;
+
+import java.util.ArrayList;
 
 public class CommonGlobal {
 
@@ -18,6 +21,19 @@ public class CommonGlobal {
         public static final String EMAIL_NOT_VALID_STRING = "Email is not valid!";
         public static final String EMAIL_IN_USE = "Email is already in use!";
         public static final String INVALID_LOGIN = "Email or password is incorrect!";
+    }
+
+    public static class RECENT {
+        private static final ArrayList<Item> RECENT_ITEMS = new ArrayList<>();
+
+        public static void setRecentItems(ArrayList<Item> recentItems){
+            RECENT_ITEMS.clear();
+            RECENT_ITEMS.addAll(recentItems);
+        }
+
+        public static ArrayList<Item> getRecentItems(){
+            return RECENT_ITEMS;
+        }
     }
 
 
