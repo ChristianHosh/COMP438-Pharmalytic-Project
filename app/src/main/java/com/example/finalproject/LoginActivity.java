@@ -1,7 +1,10 @@
 package com.example.finalproject;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -25,6 +28,18 @@ public class LoginActivity extends AppCompatActivity {
     private TextView textViewPassError;
     private TextView textViewSignUpRedirect;
 
+    ///
+    private CheckBox checkBox;
+
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
+    public static final String EMAIL = "EMAIL";
+    public static final String PASS = "PASS";
+    public static final String FLAG = "FLAG";
+    private boolean flag = false;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,21 +52,33 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void checkSavedUser() {
-        // CREATE A SHARED PREFERENCES THAT CHECKS IF A USER EMAIL AND PASSWORD WERE USED BEFORE
-        // IF EXISTS IT AUTO FILLS THE EMAIL AND PASSWORD INTO THEIR FIELDS
+        // Retrieve saved email and password from SharedPreferences
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String email = sharedPreferences.getString(EMAIL, "");
+        String password = sharedPreferences.getString(PASS, "");
+        boolean savedFlag = sharedPreferences.getBoolean(FLAG, false);
 
+        // Set the saved email and password in the EditText fields
+        editTextEmailInput.setText(email);
+        editTextPassInput.setText(password);
 
+        // Set the checkbox state based on the saved flag
+        checkBox.setChecked(savedFlag);
+
+        // Update the flag value
+        flag = savedFlag;
     }
+
 
     private void getViews() {
         editTextEmailInput = findViewById(R.id.log_in_login_email);
         editTextPassInput = findViewById(R.id.log_in_password);
         textViewEmailError = findViewById(R.id.log_error_msg_email);
         textViewPassError = findViewById(R.id.log_error_msg_password);
-
         textViewSignUpRedirect = findViewById(R.id.log_text_register_redirect);
-
         buttonLogin = findViewById(R.id.log_btn_login);
+        checkBox = findViewById(R.id.checkBox);
+
     }
 
     @Override
@@ -85,6 +112,15 @@ public class LoginActivity extends AppCompatActivity {
         boolean canLogin = true;
         String input_email = editTextEmailInput.getText().toString().trim();
         String input_password = editTextPassInput.getText().toString().trim();
+
+        if(checkBox.isChecked()){
+            if(!flag) {
+                editor.putString(EMAIL, input_email);
+                editor.putString(PASS, input_password);
+                editor.putBoolean(FLAG, true);
+                editor.commit();
+            }
+        }
 
 
         for (EditText editText : Arrays.asList(editTextPassInput, editTextEmailInput)) {
