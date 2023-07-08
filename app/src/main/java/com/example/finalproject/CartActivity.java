@@ -28,6 +28,7 @@ public class CartActivity extends AppCompatActivity {
 
         button_checkout.setOnClickListener(e -> {
             // CHECKOUT ITEMS IN CART
+
         });
     }
 

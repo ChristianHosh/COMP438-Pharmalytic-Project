@@ -1,9 +1,9 @@
 package com.example.finalproject;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -11,10 +11,10 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
-import com.example.finalproject.globals.ActivityController;
-import com.example.finalproject.globals.CommonGlobal;
 import com.example.finalproject.controllers.ProductController;
 import com.example.finalproject.controllers.SessionController;
+import com.example.finalproject.globals.ActivityController;
+import com.example.finalproject.globals.CommonGlobal;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -32,12 +32,11 @@ public class LoginActivity extends AppCompatActivity {
     private CheckBox checkBox;
 
     private SharedPreferences sharedPreferences;
-    private SharedPreferences.Editor editor;
+    private static final String PREF_NAME = "USER_CRED";
     public static final String EMAIL = "EMAIL";
     public static final String PASS = "PASS";
     public static final String FLAG = "FLAG";
     private boolean flag = false;
-
 
 
     @Override
@@ -52,13 +51,15 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void checkSavedUser() {
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        sharedPreferences = this.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
         String email = sharedPreferences.getString(EMAIL, "");
         String password = sharedPreferences.getString(PASS, "");
         boolean savedFlag = sharedPreferences.getBoolean(FLAG, false);
 
-        editTextEmailInput.setText(email);
-        editTextPassInput.setText(password);
+        if (savedFlag) {
+            editTextEmailInput.setText(email);
+            editTextPassInput.setText(password);
+        }
 
         checkBox.setChecked(savedFlag);
 
@@ -81,7 +82,6 @@ public class LoginActivity extends AppCompatActivity {
     public void onBackPressed() {
         ActivityController.showExitConfirmationPopup(this);
     }
-
 
 
     private void setMethods() {
@@ -109,12 +109,14 @@ public class LoginActivity extends AppCompatActivity {
         String input_email = editTextEmailInput.getText().toString().trim();
         String input_password = editTextPassInput.getText().toString().trim();
 
-        if(checkBox.isChecked()){
-            if(!flag) {
+        if (checkBox.isChecked()) {
+            if (!flag) {
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+
                 editor.putString(EMAIL, input_email);
                 editor.putString(PASS, input_password);
                 editor.putBoolean(FLAG, true);
-                editor.commit();
+                editor.apply();
             }
         }
 

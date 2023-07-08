@@ -45,4 +45,5 @@
     <string name="placeholder_quantity">5</string>
     <string name="add_quantity">Add Quantity</string>
     <string name="remove_quantity">Remove Quantity</string>
+    <string name="remember_me">Remember me</string>
 </resources>
