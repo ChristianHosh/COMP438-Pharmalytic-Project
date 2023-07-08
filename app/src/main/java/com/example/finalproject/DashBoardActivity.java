@@ -1,5 +1,6 @@
 package com.example.finalproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -40,6 +41,8 @@ public class DashBoardActivity extends AppCompatActivity {
 
     private void openMenu() {
 //        OPEN MENU
+        Intent intent = new Intent(this, CartActivity.class);
+        startActivity(intent);
     }
 
     private void openSearchPopup() {
@@ -51,6 +54,8 @@ public class DashBoardActivity extends AppCompatActivity {
             Toast.makeText(this, "No Items Found", Toast.LENGTH_SHORT).show();
             return;
         }
+
+
 
         DialogSearchList listDialog = new DialogSearchList(this, filteredList);
 

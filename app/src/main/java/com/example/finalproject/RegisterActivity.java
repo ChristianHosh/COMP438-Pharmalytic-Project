@@ -11,14 +11,13 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import com.example.finalproject.controllers.ProductController;
 import com.example.finalproject.globals.ActivityController;
 import com.example.finalproject.globals.CommonGlobal;
-import com.example.finalproject.controllers.ProductController;
 import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.AggregateQuery;
 import com.google.firebase.firestore.AggregateQuerySnapshot;
 import com.google.firebase.firestore.AggregateSource;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
@@ -144,10 +143,13 @@ public class RegisterActivity extends AppCompatActivity {
         user.put(ProductController.USER_FIELD_REG_DATE, new Timestamp(new Date()));
 
         // QUERIES TO FIND DOCUMENTS IN THE USERS COLLECTION WHERE THEY ALREADY HAVE THE SAME EMAIL
-        Query query = firestoreDB.collection(ProductController.USER_COLLECTION).whereEqualTo(ProductController.USER_FIELD_EMAIL, input_email);
+        Query query = firestoreDB
+                .collection(ProductController.USER_COLLECTION)
+                .whereEqualTo(ProductController.USER_FIELD_EMAIL, input_email);
 
         AggregateQuery aggregateQuery = query.count();
-        aggregateQuery.get(AggregateSource.SERVER)
+        aggregateQuery
+                .get(AggregateSource.SERVER)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         // GETS THE QUERY RESULT
@@ -168,8 +170,10 @@ public class RegisterActivity extends AppCompatActivity {
                         }
 
                         // IN THE OTHER CASE WHERE THE EMAIL IS NOT IN USE THEN THE USER REGISTERS
-                        DocumentReference documentReference = firestoreDB.collection(ProductController.USER_COLLECTION).document();
-                        documentReference.set(user)
+                        firestoreDB
+                                .collection(ProductController.USER_COLLECTION)
+                                .document()
+                                .set(user)
                                 .addOnSuccessListener(success -> {
 
                                     Log.d("REG SUCCESS", "DocumentSnapshot successfully written!");
