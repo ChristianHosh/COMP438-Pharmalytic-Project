@@ -3,19 +3,15 @@ package com.example.finalproject;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 
-public class Menu extends AppCompatActivity {
-    private Button User;
-    private Button Home;
-    private Button Setting;
-    private Button Recent;
-    private Button Logout;
-    private Button cart;
+public class MenuActivity extends AppCompatActivity {
+    private AppCompatButton button_user;
+    private AppCompatButton button_home;
+    private AppCompatButton button_cart;
+    private AppCompatButton button_recent;
+    private AppCompatButton button_settings;
+    private AppCompatButton button_logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

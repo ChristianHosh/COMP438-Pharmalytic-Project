@@ -46,4 +46,9 @@
     <string name="add_quantity">Add Quantity</string>
     <string name="remove_quantity">Remove Quantity</string>
     <string name="remember_me">Remember me</string>
+    <string name="user">User</string>
+    <string name="home">Home</string>
+    <string name="recent">Recent</string>
+    <string name="setting">Setting</string>
+    <string name="logout">Logout</string>
 </resources>

@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@color/secondary_bg"
     android:gravity="top"
-    android:background="#19191C"
-    tools:context=".Menu">
+    android:orientation="vertical"
+    tools:context=".MenuActivity">
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/dash_title"
-        android:orientation="horizontal"
-        android:paddingHorizontal="10dp"
-        android:paddingVertical="5dp">
+    <androidx.appcompat.widget.LinearLayoutCompat style="@style/header_layout">
 
         <ImageView
             android:layout_width="75dp"
@@ -32,85 +25,85 @@
             android:layout_marginStart="20dp"
             android:text="@string/app_title"
             android:textAllCaps="true" />
+
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <Button
-        android:id="@+id/buttonUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="User"
-        android:height="50dp"
-        android:width="405dp"
-        android:drawableLeft="@drawable/baseline_person_24"
-        android:drawablePadding="8dp"
-        android:layout_gravity="start"
-
-        />
-    <Button
-        android:id="@+id/buttonHome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Home"
-        android:height="50dp"
-        android:width="405dp"
-        android:drawableLeft="@drawable/baseline_home_24"
-        android:drawablePadding="8dp"
-        android:layout_gravity="start"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/menu_btn_user"
         style="@style/button.secondary"
-
-        />
-
-    <Button
-        android:id="@+id/buttonCart"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cart"
-        android:height="50dp"
-        android:width="405dp"
-        android:drawableLeft="@drawable/baseline_shopping_cart_24"
-        android:drawablePadding="8dp"
         android:layout_gravity="start"
-
-        />
-
-    <Button
-        android:id="@+id/buttonRecent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Recent"
-        android:height="50dp"
-        android:width="405dp"
-        android:drawableLeft="@drawable/baseline_replay_circle_filled_24"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:drawableStart="@drawable/baseline_person_24"
         android:drawablePadding="8dp"
-        android:layout_gravity="start"
+        android:text="@string/user"
+        android:textSize="20sp" />
 
-        />
-
-    <Button
-        android:id="@+id/buttonSetting"
-        android:layout_width="wrap_content"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/menu_btn_home"
+        style="@style/button.secondary"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Setting"
-        android:height="50dp"
-        android:width="405dp"
-        android:drawableLeft="@drawable/baseline_settings_24"
+        android:layout_gravity="start"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="5dp"
+        android:drawableStart="@drawable/baseline_home_24"
         android:drawablePadding="8dp"
-        android:layout_gravity="start"
+        android:text="@string/home"
+        android:textSize="20sp" />
 
-        />
-
-    <Button
-        android:id="@+id/LogOut"
-        android:layout_width="wrap_content"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/menu_btn_cart"
+        style="@style/button.secondary"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Logout"
-        android:height="50dp"
-        android:width="405dp"
-        android:drawableLeft="@drawable/baseline_logout_24"
+        android:layout_gravity="start"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="5dp"
+        android:drawableStart="@drawable/baseline_shopping_cart_24"
+        android:drawablePadding="8dp"
+        android:text="@string/cart"
+        android:textSize="20sp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/menu_btn_recenets"
+        style="@style/button.secondary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="5dp"
+        android:drawableStart="@drawable/baseline_replay_circle_filled_24"
+        android:drawablePadding="8dp"
+        android:text="@string/recent"
+        android:textSize="20sp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/menu_btn_settings"
+        style="@style/button.secondary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="5dp"
+        android:drawableStart="@drawable/baseline_settings_24"
+        android:drawablePadding="8dp"
+        android:text="@string/setting"
+        android:textSize="20sp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/menu_btn_logout"
+        style="@style/button.secondary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="5dp"
+        android:drawableStart="@drawable/baseline_logout_24"
         android:drawablePadding="10dp"
-        android:layout_gravity="start"
+        android:text="@string/logout"
+        android:textSize="20sp" />
 
-
-        tools:ignore="OnClick" />
-
-</LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -76,7 +76,7 @@ public class DashBoardActivity extends AppCompatActivity {
         editText_search = findViewById(R.id.dash_in_search_bar);
     }
     private void RedirectToMenu() {
-        Intent intent = new Intent(this, Menu.class);
+        Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
 
         finish();
