@@ -80,18 +80,6 @@
         android:text="@string/recent"
         android:textSize="20sp" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/menu_btn_settings"
-        style="@style/button.secondary"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="5dp"
-        android:drawableStart="@drawable/baseline_settings_24"
-        android:drawablePadding="8dp"
-        android:text="@string/setting"
-        android:textSize="20sp" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/menu_btn_logout"
