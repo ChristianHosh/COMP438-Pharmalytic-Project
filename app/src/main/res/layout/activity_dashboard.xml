@@ -36,6 +36,7 @@
             android:id="@+id/dash_btn_menu"
             android:layout_width="60dp"
             android:layout_height="60dp"
+            android:onClick="RedirectToMenu"
             android:background="@drawable/baseline_menu_24" />
 
         <EditText
