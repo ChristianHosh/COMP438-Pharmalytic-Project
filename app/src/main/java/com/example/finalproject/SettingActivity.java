@@ -18,8 +18,8 @@ public class SettingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
 
-        button_change = findViewById(R.id.pass);
-        button_back2 = findViewById(R.id.back2);
+        button_change = findViewById(R.id.user_btn_changePass);
+        button_back2 = findViewById(R.id.user_btn_back);
         setOnClickListener();
     }
 

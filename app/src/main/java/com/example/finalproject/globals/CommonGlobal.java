@@ -26,6 +26,7 @@ public class CommonGlobal {
         public static final String EMAIL_NOT_VALID_STRING = "Email is not valid!";
         public static final String EMAIL_IN_USE = "Email is already in use!";
         public static final String INVALID_LOGIN = "Email or password is incorrect!";
+        public static final String INVALID_PASSWORD = "Password is incorrect!";
     }
 
     public static class RECENT {

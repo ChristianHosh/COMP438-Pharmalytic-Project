@@ -29,7 +29,7 @@
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/pass"
+        android:id="@+id/user_btn_changePass"
         style="@style/button.secondary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,23 +39,20 @@
         android:drawableStart="@drawable/baseline_password_24"
         android:drawablePadding="8dp"
         android:text="@string/change_password"
-        android:textSize="20sp"
-        tools:ignore="InvalidId" />
+        android:textSize="20sp" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/back2"
+        android:id="@+id/user_btn_back"
         style="@style/button.secondary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:drawableStart="@drawable/baseline_arrow_back_24"
         android:drawablePadding="8dp"
         android:text="@string/back"
-        android:textSize="20sp"
-        tools:ignore="InvalidId" />
-
+        android:textSize="20sp" />
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>
