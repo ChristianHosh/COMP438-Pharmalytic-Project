@@ -152,8 +152,4 @@ public class ProductController {
         return itemArrayList;
     }
 
-
-//    public static void
-
-
 }

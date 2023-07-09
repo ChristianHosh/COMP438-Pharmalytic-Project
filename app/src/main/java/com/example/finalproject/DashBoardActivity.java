@@ -45,7 +45,7 @@ public class DashBoardActivity extends AppCompatActivity {
         String queryString = editText_search.getText().toString().toLowerCase().trim();
 
         ArrayList<Item> filteredList = ProductController.getFilteredList(queryString);
-        CommonGlobal.RECENT.setRecentItems(filteredList);
+        CommonGlobal.RECENT.setRecentItems(filteredList, this);
 
         if (filteredList.isEmpty()) {
             Toast.makeText(this, "No Items Found", Toast.LENGTH_SHORT).show();

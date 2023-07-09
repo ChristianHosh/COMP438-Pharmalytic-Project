@@ -13,7 +13,7 @@
         android:theme="@style/Theme.FinalProject"
         tools:targetApi="31">
         <activity
-            android:name=".Recent"
+            android:name=".RecentActivity"
             android:exported="false" />
         <activity
             android:name=".PasswordActivity"

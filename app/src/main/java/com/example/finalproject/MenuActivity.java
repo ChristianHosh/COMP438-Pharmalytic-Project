@@ -55,7 +55,9 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     private void redirectToRecent() {
-
+        Intent intent = new Intent(this, RecentActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     private void setOnClickListeners() {
