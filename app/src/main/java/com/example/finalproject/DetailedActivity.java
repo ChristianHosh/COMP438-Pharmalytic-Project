@@ -70,18 +70,11 @@ public class DetailedActivity extends Activity {
     }
 
     private void setQuantity() {
-        button_addToCart.setClickable(false);
+        button_addToCart.setOnClickListener(v -> addToCart(1));
         numberPicker_quantity.setMinValue(1);
         numberPicker_quantity.setMaxValue(25);
         numberPicker_quantity.setValue(1);
-        numberPicker_quantity.setOnValueChangedListener((picker, oldVal, newVal) -> {
-            if (newVal > 0) {
-                button_addToCart.setClickable(true);
-                button_addToCart.setOnClickListener(v -> addToCart(newVal));
-            } else {
-                button_addToCart.setClickable(false);
-            }
-        });
+        numberPicker_quantity.setOnValueChangedListener((picker, oldVal, newVal) -> button_addToCart.setOnClickListener(v -> addToCart(numberPicker_quantity.getValue())));
 
     }
 
