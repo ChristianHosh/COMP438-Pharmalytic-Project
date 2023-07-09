@@ -36,7 +36,6 @@ public class LoginActivity extends AppCompatActivity {
     public static final String EMAIL = "EMAIL";
     public static final String PASS = "PASS";
     public static final String FLAG = "FLAG";
-    private boolean flag = false;
 
 
     @Override
@@ -62,8 +61,6 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         checkBox.setChecked(savedFlag);
-
-        flag = savedFlag;
     }
 
 
@@ -110,14 +107,13 @@ public class LoginActivity extends AppCompatActivity {
         String input_password = editTextPassInput.getText().toString().trim();
 
         if (checkBox.isChecked()) {
-            if (!flag) {
-                SharedPreferences.Editor editor = sharedPreferences.edit();
+            SharedPreferences.Editor editor = sharedPreferences.edit();
 
-                editor.putString(EMAIL, input_email);
-                editor.putString(PASS, input_password);
-                editor.putBoolean(FLAG, true);
-                editor.apply();
-            }
+            editor.putString(EMAIL, input_email);
+            editor.putString(PASS, input_password);
+            editor.putBoolean(FLAG, true);
+            editor.apply();
+
         }
 
 

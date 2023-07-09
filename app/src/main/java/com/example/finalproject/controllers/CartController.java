@@ -28,6 +28,7 @@ public class CartController {
     public static final String USER_COLLECTION_CART_FIELD_ITEM_ID = "item_id";
     public static final String USER_COLLECTION_CART_FIELD_QUANTITY = "quantity";
     public static final String USER_COLLECTION_CART_FIELD_TOTAL_PRICE = "total";
+    private static final ArrayList<CartItem> CART_ITEMS = new ArrayList<>();
 
 
     public static void addItemToCart(SessionController instance, Item item, Context context) {
@@ -56,14 +57,17 @@ public class CartController {
                 .set(cartItem)
                 .addOnCompleteListener(innerTask -> {
                     if (innerTask.isSuccessful()) {
-                        Toast.makeText(context, "Item Added to cart", Toast.LENGTH_SHORT).show();
+                        if (quantity > 1)
+                            Toast.makeText(context, "Added to cart " + quantity + " items", Toast.LENGTH_SHORT).show();
+                        else
+                            Toast.makeText(context, "Added to cart " + quantity + " item", Toast.LENGTH_SHORT).show();
+
                     } else {
                         Log.d(TAG, "Error Adding Item to Cart => ", innerTask.getException());
                     }
                 });
 
     }
-
 
     public static void initializeCartItemsAndPrice(SessionController userInstance, RecyclerView recyclerView_cartItems, TextView textView_price, Context context) {
         ArrayList<CartItem> cartItems = new ArrayList<>();
@@ -96,6 +100,7 @@ public class CartController {
 
                                     CartItem cartItem = new CartItem(item, id, itemQuantity.intValue(), itemPrice.floatValue());
                                     cartItems.add(cartItem);
+                                    CART_ITEMS.add(cartItem);
                                 }
                             }
                         }
@@ -123,5 +128,33 @@ public class CartController {
         }
         String priceString = total + "$";
         textView_price.setText(priceString);
+    }
+
+    public static ArrayList<CartItem> getCartItems() {
+        return CART_ITEMS;
+    }
+
+    public static void orderPlaced() {
+        CART_ITEMS.clear();
+
+        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+        firestore
+                .collection(ProductController.USER_COLLECTION)
+                .document(SessionController.getInstance().getId())
+                .collection(USER_COLLECTION_CART)
+                .get()
+                .addOnSuccessListener(task -> {
+                    for (QueryDocumentSnapshot document : task) {
+                        firestore
+                                .collection(ProductController.USER_COLLECTION)
+                                .document(SessionController.getInstance().getId())
+                                .collection(USER_COLLECTION_CART)
+                                .document(document.getId())
+                                .delete()
+                                .addOnSuccessListener(unused -> {
+
+                                });
+                    }
+                });
     }
 }

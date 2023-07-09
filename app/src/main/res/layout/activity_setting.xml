@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="20dp"
-            android:text="User"
+            android:text="@string/user"
             android:textAllCaps="true" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -38,8 +38,7 @@
         android:layout_marginTop="20dp"
         android:drawableStart="@drawable/baseline_password_24"
         android:drawablePadding="8dp"
-        android:text="change password"
-        android:onClick="redirectoPasswordActivity"
+        android:text="@string/change_password"
         android:textSize="20sp"
         tools:ignore="InvalidId" />
 
@@ -48,13 +47,12 @@
         style="@style/button.secondary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="left"
+        android:layout_gravity="center"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"
         android:drawableStart="@drawable/baseline_arrow_back_24"
         android:drawablePadding="8dp"
-        android:text="Back"
-        android:onClick="redirectToMenu"
+        android:text="@string/back"
         android:textSize="20sp"
         tools:ignore="InvalidId" />
 

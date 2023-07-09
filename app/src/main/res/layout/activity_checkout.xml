@@ -9,34 +9,77 @@
 
 
     <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/linearLayoutCompat10"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/secondary_bg"
-        android:paddingHorizontal="25dp"
-        android:paddingVertical="10dp"
         android:gravity="center_vertical"
+        android:paddingHorizontal="25dp"
 
+        android:paddingVertical="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/checkout_text_shipping"
-            style="@style/text.form_label"
+        <ImageView
+            android:id="@+id/checkout_iv_addressStep"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/baseline_radio_button_unchecked_24"
+            android:contentDescription="@string/checkout_step_address" />
+
+        <Space
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Shipping"
-            android:textAlignment="center"
-            android:textColor="@color/success_text"
-            app:drawableTopCompat="@drawable/checkout_state_1_current" />
+            android:layout_weight="1" />
 
         <View
-            android:id="@+id/view"
+            android:id="@+id/checkout_v_addressStepLine"
+            style="@style/state_line" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/checkout_iv_paymentStep"
             android:layout_width="50dp"
-            android:layout_height="3dp"
-            android:layout_marginHorizontal="10dp"
-            android:background="@color/secondary" />
+            android:layout_height="50dp"
+            android:background="@drawable/baseline_radio_button_unchecked_24"
+            android:contentDescription="@string/checkout_step_payment" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <View
+            android:id="@+id/checkout_v_paymentStepLine"
+            style="@style/state_line" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/checkout_iv_reviewStep"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/baseline_radio_button_unchecked_24"
+            android:contentDescription="@string/checkout_step_review" />
+
 
     </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <FrameLayout
+        android:id="@+id/checkout_fragmentFrame"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat10" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

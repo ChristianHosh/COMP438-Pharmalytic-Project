@@ -41,18 +41,16 @@ public class DashBoardActivity extends AppCompatActivity {
     }
 
 
-
     private void openSearchPopup() {
         String queryString = editText_search.getText().toString().toLowerCase().trim();
 
         ArrayList<Item> filteredList = ProductController.getFilteredList(queryString);
         CommonGlobal.RECENT.setRecentItems(filteredList);
 
-        if (filteredList.isEmpty()){
+        if (filteredList.isEmpty()) {
             Toast.makeText(this, "No Items Found", Toast.LENGTH_SHORT).show();
             return;
         }
-
 
 
         DialogSearchList listDialog = new DialogSearchList(this, filteredList);
@@ -80,10 +78,9 @@ public class DashBoardActivity extends AppCompatActivity {
         button_menu = findViewById(R.id.dash_btn_menu);
         editText_search = findViewById(R.id.dash_in_search_bar);
     }
+
     private void RedirectToMenu() {
         Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
-
-        finish();
     }
 }

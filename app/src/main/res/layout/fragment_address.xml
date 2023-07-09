@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/body_bg"
+    android:orientation="vertical"
+    tools:context=".AddressFragment">
+
+    <TextView
+        style="@style/text.h2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/address"
+        android:textAllCaps="true" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="10dp">
+
+        <TextView
+            style="@style/text.form_label"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:text="@string/delivery" />
+
+        <EditText
+            android:id="@+id/address_et_delivery"
+            style="@style/text.form_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="postalAddress"
+            android:hint="@string/hint_delivery"
+            android:inputType="textPostalAddress"
+            android:maxLength="30"
+            android:textColorHint="@color/text_tertiary" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+
+        android:orientation="horizontal"
+        android:paddingStart="20dp"
+        android:paddingEnd="10dp">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/text.form_label"
+                android:layout_width="wrap_content"
+
+
+                android:layout_height="wrap_content"
+                android:text="@string/city" />
+
+            <EditText
+                android:id="@+id/address_et_city"
+                style="@style/text.form_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="postalAddress"
+                android:hint="@string/hint_city"
+                android:inputType="textPostalAddress"
+                android:maxLength="30"
+                android:textColorHint="@color/text_tertiary" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/text.form_label"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:text="@string/state" />
+
+            <EditText
+                android:id="@+id/address_et_state"
+                style="@style/text.form_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="postalAddress"
+                android:hint="@string/hint_state"
+                android:inputType="textPostalAddress"
+                android:maxLength="30"
+                android:textColorHint="@color/text_tertiary" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/text.form_label"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:text="@string/zip_code" />
+
+            <EditText
+                android:id="@+id/address_et_zip"
+                style="@style/text.form_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="postalAddress"
+                android:hint="@string/hint_zip"
+                android:inputType="textPostalAddress"
+                android:maxLength="30"
+                android:textColorHint="@color/text_tertiary" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/address_btn_toPayment"
+        style="@style/button.success"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginVertical="20dp"
+        android:drawableEnd="@drawable/baseline_arrow_forward_24"
+        android:drawablePadding="8dp"
+        android:paddingHorizontal="50dp"
+        android:text="@string/payment"
+        android:textSize="22sp" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

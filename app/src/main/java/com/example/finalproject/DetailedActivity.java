@@ -2,11 +2,11 @@ package com.example.finalproject;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.NumberPicker;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.widget.AppCompatButton;
 
@@ -16,6 +16,7 @@ import com.example.finalproject.controllers.SessionController;
 import com.example.finalproject.models.Item;
 import com.example.finalproject.models.adapters.ItemAdapter;
 import com.google.gson.Gson;
+import com.r0adkll.slidr.Slidr;
 
 public class DetailedActivity extends Activity {
 
@@ -31,6 +32,8 @@ public class DetailedActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailed_view);
+
+        Slidr.attach(this, Color.TRANSPARENT, Color.TRANSPARENT);
 
         getViews();
         Bundle bundle = getIntent().getExtras();
@@ -85,10 +88,9 @@ public class DetailedActivity extends Activity {
     ///////////////////////////////////////////////////////////////////////////////////
     private void addToCart(int selectedQuantity) {
         if (selectedQuantity == 1) {
-            Toast.makeText(getApplicationContext(), "Added to cart " + selectedQuantity + " item", Toast.LENGTH_SHORT).show();
             CartController.addItemToCart(SessionController.getInstance(), item, this);
+
         } else if (selectedQuantity > 1) {
-            Toast.makeText(getApplicationContext(), "Added to cart " + selectedQuantity + " items", Toast.LENGTH_SHORT).show();
             CartController.addItemToCart(SessionController.getInstance(), item, selectedQuantity, this);
 
         }

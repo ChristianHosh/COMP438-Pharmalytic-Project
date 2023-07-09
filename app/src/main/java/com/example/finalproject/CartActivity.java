@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -27,7 +28,8 @@ public class CartActivity extends AppCompatActivity {
                 recyclerView_cartItems, textView_totalPrice, this);
 
         button_checkout.setOnClickListener(e -> {
-            // CHECKOUT ITEMS IN CART
+            Intent intent = new Intent(this, CheckoutActivity.class);
+            startActivity(intent);
 
         });
     }

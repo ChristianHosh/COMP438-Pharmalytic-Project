@@ -122,4 +122,22 @@
         <item name="android:paddingVertical">5dp</item>
     </style>
 
+    <style name="AppTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="colorPrimary">@color/secondary_bg</item>
+        <item name="colorPrimaryDark">@color/body_bg</item>
+        <item name="colorAccent">@color/primary</item>
+    </style>
+
+    <style name="AppTheme.SlidrActivityTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="state_line">
+        <item name="android:layout_width">70dp</item>
+        <item name="android:layout_height">3dp</item>
+        <item name="android:layout_marginHorizontal">10dp</item>
+        <item name="android:background">@color/emphasis_color</item>
+    </style>
+
 </resources>

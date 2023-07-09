@@ -6,80 +6,97 @@
     android:layout_height="match_parent"
     android:background="@color/body_bg"
     android:orientation="vertical"
-    android:paddingHorizontal="10dp"
-    android:paddingVertical="20dp"
     tools:context=".DetailedActivity">
 
-    <TextView
-        android:id="@+id/detailed_title"
-        style="@style/text.h2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/placeholder_item_title" />
-
-    <ScrollView
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="20dp">
 
-        <androidx.appcompat.widget.LinearLayoutCompat
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/baseline_arrow_back_24"
+            android:contentDescription="@string/slide_to_go_back" />
+
+        <TextView
+            android:id="@+id/detailed_title"
+            style="@style/text.h2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_gravity="center"
+            android:text="@string/placeholder_item_title" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp">
+                android:orientation="vertical">
 
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/detailed_img"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp">
 
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintDimensionRatio="1:1"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:shapeAppearanceOverlay="@style/rounded_image"
-                    app:srcCompat="@drawable/unavailable_placeholder_image" />
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/detailed_img"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:shapeAppearanceOverlay="@style/rounded_image"
+                        app:srcCompat="@drawable/unavailable_placeholder_image" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/tertiary_bg" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                style="@style/text.form_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/about_this_item" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/tertiary_bg" />
 
-            <TextView
-                android:id="@+id/detailed_info"
-                style="@style/text.p"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/placeholder_item_xl_description" />
+                <TextView
+                    style="@style/text.form_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/about_this_item" />
 
-            <TextView
-                android:id="@+id/detailed_price"
-                style="@style/text.form_label"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/placeholder_item_price"
-                android:textColor="@color/info_text" />
+                <TextView
+                    android:id="@+id/detailed_info"
+                    style="@style/text.p"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/placeholder_item_xl_description"
+                    tools:ignore="VisualLintLongText" />
 
-        </androidx.appcompat.widget.LinearLayoutCompat>
-    </ScrollView>
+                <TextView
+                    android:id="@+id/detailed_price"
+                    style="@style/text.form_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/placeholder_item_price"
+                    android:textColor="@color/info_text" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </ScrollView>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/secondary_bg"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 

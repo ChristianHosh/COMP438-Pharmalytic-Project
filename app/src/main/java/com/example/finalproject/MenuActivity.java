@@ -6,12 +6,13 @@ import androidx.appcompat.widget.AppCompatButton;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.finalproject.controllers.SessionController;
+
 public class MenuActivity extends AppCompatActivity {
     private AppCompatButton button_user;
     private AppCompatButton button_home;
     private AppCompatButton button_cart;
     private AppCompatButton button_recent;
-    private AppCompatButton button_settings;
     private AppCompatButton button_logout;
 
     @Override
@@ -35,9 +36,10 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     private void redirectToLoginActivity() {
+        SessionController.endSession();
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
-        finish();
+        finishAffinity();
     }
 
     private void redirectToDash() {
@@ -46,23 +48,23 @@ public class MenuActivity extends AppCompatActivity {
         finish();
     }
 
-    private void redirectToAdmin(){
-        Intent intent = new Intent(this, AdminActivity.class);
+    private void redirectToCart() {
+        Intent intent = new Intent(this, CartActivity.class);
         startActivity(intent);
         finish();
     }
 
-    private void redirectToRecent(){
-        Intent intent = new Intent(this, Recent.class);
-        startActivity(intent);
-        finish();
-    }
+    private void redirectToRecent() {
 
+    }
 
     private void setOnClickListeners() {
         button_user.setOnClickListener(view -> redirectToSettingActivity());
         button_logout.setOnClickListener(view -> redirectToLoginActivity());
         button_home.setOnClickListener(view -> redirectToDash());
-        button_recent.setOnClickListener(view-> redirectToRecent());
+        button_cart.setOnClickListener(view -> redirectToCart());
+        button_recent.setOnClickListener(view -> redirectToRecent());
     }
+
+
 }

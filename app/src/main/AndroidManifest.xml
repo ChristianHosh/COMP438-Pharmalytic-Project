@@ -47,6 +47,7 @@
         </activity>
         <activity
             android:name=".DetailedActivity"
+            android:theme="@style/AppTheme.SlidrActivityTheme"
             android:exported="false" />
         <activity
             android:name=".RegisterActivity"
