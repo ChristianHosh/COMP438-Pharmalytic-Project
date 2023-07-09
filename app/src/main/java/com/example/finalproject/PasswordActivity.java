@@ -26,7 +26,7 @@ public class PasswordActivity extends AppCompatActivity {
     private TextView textView_confError;
     private AppCompatButton button_submit;
 
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,7 +101,6 @@ public class PasswordActivity extends AppCompatActivity {
         if (canChange) {
             changePassword(in_currentPassword, in_confNewPassword);
         }
-
 
     }
 
