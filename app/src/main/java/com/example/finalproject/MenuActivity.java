@@ -46,9 +46,23 @@ public class MenuActivity extends AppCompatActivity {
         finish();
     }
 
+    private void redirectToAdmin(){
+        Intent intent = new Intent(this, AdminActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    private void redirectToRecent(){
+        Intent intent = new Intent(this, Recent.class);
+        startActivity(intent);
+        finish();
+    }
+
+
     private void setOnClickListeners() {
         button_user.setOnClickListener(view -> redirectToSettingActivity());
         button_logout.setOnClickListener(view -> redirectToLoginActivity());
         button_home.setOnClickListener(view -> redirectToDash());
+        button_recent.setOnClickListener(view-> redirectToRecent());
     }
 }
